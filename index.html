@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Application Insights -->
+<script type="text/javascript">
+  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src="https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("head")[0].appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["trackEvent","trackPageView","trackException","trackTrace","trackDependencyData","flush"],o=0;o<r.length;o++)n(r[o]);return t}( { connectionString:"InstrumentationKey=79a5e827-b7b9-4ef0-8346-c3719dfacf19;IngestionEndpoint=https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint=https://centralus.livediagnostics.monitor.azure.com/;ApplicationId=3aaac8e1-3ff8-4c96-97d3-a62385437651" } );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+</script>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
