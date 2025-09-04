@@ -1,65 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AmesGate</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AmesGate — Technology, Infrastructure, and Creative Engineering</title>
+  <meta name="description" content="AmesGate builds reliable Microsoft 365 and Azure foundations, ironclad infrastructure, and creative tech experiences." />
+  <meta property="og:title" content="AmesGate" />
+  <meta property="og:description" content="Reliable cloud foundations. Ironclad infrastructure. Creative engineering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.amesgate.com/" />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="icon" href="/favicon.ico" />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 60px;
-      background: linear-gradient(160deg, #111, #222);
-      color: #eee;
+    :root{
+      --bg:#0f1115;
+      --bg2:#141821;
+      --text:#e7e9ee;
+      --muted:#a7b0c0;
+      --accent:#e26d5c;   /* copper/red */
+      --accent2:#7ec59b;  /* subtle growth green */
+      --card:#151a22;
+      --border:#232a36;
+      --max:1080px;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      color: #e26d5c;
-      letter-spacing: 2px;
-    }
-    h2 {
-      font-weight: 400;
-      font-size: 1.3rem;
-      margin-top: 0;
-      margin-bottom: 40px;
-      color: #aaa;
-    }
-    p {
-      max-width: 600px;
-      margin: 20px auto;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-    a {
-      color: #4dabf7;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #666;
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:radial-gradient(1200px 600px at 70% -20%, #1a202b 0%, var(--bg) 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
+    a{color:#79b7ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none}
+    .logo{width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,#3a3f49,#1f232b); border:1px solid var(--border); display:grid; place-items:center; box-shadow:var(--shadow)}
+    .logo span{font-weight:800; color:var(--accent); letter-spacing:.5px}
+    .name{font-weight:700; font-size:1.1rem; letter-spacing:.4px}
+    .tag{color:var(--muted); font-size:.95rem}
+    .btn{display:inline-block; padding:10px 16px; border-radius:12px; background:var(--accent); color:#111; font-weight:700; border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
+    .btn:hover{filter:brightness(.95)}
+    .hero{padding:64px 0 24px; text-align:center}
+    .hero h1{font-size:clamp(2.2rem,4vw,3.2rem); margin:0 0 10px; letter-spacing: .6px; color:var(--text)}
+    .hero p{margin:0 auto 26px; max-width:760px; line-height:1.6; color:var(--muted); font-size:1.1rem}
+    .badges{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:20px 0 6px}
+    .badge{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.02); color:#c9d2e3; font-size:.9rem}
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr); margin:36px 0}
+    .card{grid-column: span 12; background:linear-gradient(180deg, var(--card), #11161d); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 10px; font-size:1.2rem}
+    .card p{margin:0; color:var(--muted); line-height:1.6}
+    .card .hint{margin-top:12px; font-size:.93rem; color:#cfd6e3}
+    .icon{font-weight:900; color:var(--accent)}
+    .cta{display:flex; gap:12px; justify-content:center; margin:34px 0 6px; flex-wrap:wrap}
+    .cta .ghost{background:transparent; border:1px solid var(--border); color:var(--text)}
+    footer{margin:52px 0 20px; text-align:center; color:#98a2b3; font-size:.95rem}
+    @media (min-width:760px){
+      .card{grid-column: span 6}
+      .card.wide{grid-column: span 12}
     }
   </style>
 </head>
 <body>
-  <h1>AmesGate</h1>
-  <h2>Forged at the intersection of technology and creativity</h2>
-  <p>
-    Welcome to AmesGate — our official home online.<br>
-    For inquiries, contact us at
-    <a href="mailto:info@amesgate.com">info@amesgate.com</a>.
-  </p>
-  <footer>
-    © <span id="year"></span> AmesGate. All rights reserved.
-  </footer>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/" aria-label="AmesGate home">
+        <div class="logo" aria-hidden="true"><span>AG</span></div>
+        <div>
+          <div class="name">AmesGate</div>
+          <div class="tag">Technology · Infrastructure · Creative Engineering</div>
+        </div>
+      </a>
+      <a class="btn" href="mailto:info@amesgate.com">Contact</a>
+    </header>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="badges">
+        <div class="badge">Microsoft 365</div>
+        <div class="badge">Azure</div>
+        <div class="badge">Security & Identity</div>
+        <div class="badge">Automation</div>
+      </div>
+      <h1 id="hero-title">Reliable cloud foundations. Ironclad infrastructure. Creative engineering.</h1>
+      <p>
+        AmesGate designs and operates practical, resilient systems—rooted in Microsoft 365 and Azure—
+        with the craftsmanship you expect from a shop that actually builds.
+      </p>
+      <div class="cta">
+        <a class="btn" href="mailto:info@amesgate.com">Start a conversation</a>
+        <a class="btn ghost" href="mailto:press@amesgate.com">Press & inquiries</a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Capabilities">
+      <article class="card">
+        <h3><span class="icon">⛭</span> Microsoft 365 Foundations</h3>
+        <p>Tenant architecture, Entra ID, security baselines, conditional access, device posture, and zero-drama operations.</p>
+        <p class="hint"><strong>Outcome:</strong> predictable sign-ins, clean governance, fewer “mystery” issues.</p>
+      </article>
+
+      <article class="card">
+        <h3><span class="icon">☁</span> Azure Infrastructure</h3>
+        <p>Landing zones, network segmentation, identity-first access, IaC (Bicep/Terraform), monitoring with Application Insights & Log Analytics.</p>
+        <p class="hint"><strong>Outcome:</strong> scalable environments that are easy to audit and easy to fix.</p>
+      </article>
+
+      <article class="card">
+        <h3><span class="icon">🔒</span> Security & Resilience</h3>
+        <p>Defender for Cloud, backup strategy, least-privilege, secrets in Key Vault, incident hygiene and recovery drills.</p>
+        <p class="hint"><strong>Outcome:</strong> fewer surprises, faster recoveries.</p>
+      </article>
+
+      <article class="card">
+        <h3><span class="icon">⚡</span> Automation & Tooling</h3>
+        <p>PowerShell, GitHub Actions, Functions, and Container Apps to reduce toil and make good habits the default path.</p>
+        <p class="hint"><strong>Outcome:</strong> hours back every week—and happier on-call.</p>
+      </article>
+
+      <article class="card wide">
+        <h3><span class="icon">✧</span> Creative Tech</h3>
+        <p>Static web experiences, low-maintenance sites, and integrations that feel crafted—not duct-taped.</p>
+      </article>
+    </section>
+
+    <section class="hero" aria-label="Get in touch">
+      <p>Want AmesGate to design your foundations or tighten what you’ve got?</p>
+      <div class="cta">
+        <a class="btn" href="mailto:info@amesgate.com">info@amesgate.com</a>
+        <a class="btn ghost" href="mailto:billing@amesgate.com">billing@amesgate.com</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> AmesGate. All rights reserved.
+    </footer>
+  </div>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
