@@ -2,7 +2,7 @@
 <html lang="en">
   <!-- Application Insights -->
   <script type="text/javascript">
-    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src="https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("head")[0].appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["trackEvent","trackPageView","trackException","trackTrace","trackDependencyData","flush"],o=0;o<r.length;o++)n(r[o]);return t}({ connectionString:"InstrumentationKey=79a5e827-b7b9-4ef0-8346-c3719dfacf19;IngestionEndpoint=https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint=https://centralus.livediagnostics.monitor.azure.com/;ApplicationId=3aaac8e1-3ff8-4c96-97d3-a62385437651" });window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src="https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("head")[0].appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["trackEvent","trackPageView","trackException","trackTrace","trackDependencyData","flush"],o=0;o<r.length;o++)n(r[o]);return t}({ connectionString:"InstrumentationKey=79a5e827-b7b9-4ef0-8346-c3719dfacf19;IngestionEndpoint:https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint:https://centralus.livediagnostics.monitor.azure.com/;ApplicationId:3aaac8e1-3ff8-4c96-97d3-a62385437651" });window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
   </script>
 
 <head>
@@ -23,42 +23,57 @@
       --bg2:#141821;
       --text:#e7e9ee;
       --muted:#a7b0c0;
-      --accent:#e26d5c;
-      --accent2:#7ec59b;
+      --accent:#e26d5c;   /* copper/red */
+      --accent2:#7ec59b;  /* subtle growth green */
       --card:#151a22;
       --border:#232a36;
       --max:1080px;
       --radius:16px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
     }
+
     *{box-sizing:border-box}
+
     html,body{
       margin:0;
+      height:100%;
       background:
         radial-gradient(1200px 600px at 70% -20%, #1a202b 0%, var(--bg) 60%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
       color:var(--text);
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
     }
-    a{color:#79b7ff; text-decoration:none}
+
+    a{color:#79b7ff;text-decoration:none}
     a:hover{text-decoration:underline}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 20px 40px;
+    }
 
     header{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:16px;
     }
 
-    .brand{display:flex; align-items:center; gap:14px}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+    }
 
-    /* NEW LOGO STYLE */
     .logo{
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      overflow:hidden;
+      width:44px;
+      height:44px;
+      border-radius:999px;
+      background:#000;
       border:1px solid var(--border);
+      overflow:hidden;
       box-shadow:var(--shadow);
       flex-shrink:0;
     }
@@ -67,309 +82,492 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      display:block;
     }
 
     .name{
-      font-weight:700; font-size:1.1rem; letter-spacing:.4px;
+      font-weight:700;
+      font-size:1.1rem;
+      letter-spacing:.4px;
     }
+
     .tag{
-      color:var(--muted); font-size:.95rem;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
     .btn{
-      display:inline-block; padding:10px 16px;
+      display:inline-block;
+      padding:10px 16px;
       border-radius:12px;
-      background:var(--accent); color:#111; font-weight:700;
+      background:var(--accent);
+      color:#111;
+      font-weight:700;
       border:1px solid rgba(255,255,255,.08);
       box-shadow:var(--shadow);
     }
-    .btn.ghost{
-      background:transparent;
-      color:var(--text);
-      border:1px solid var(--border);
-      box-shadow:none;
+
+    .btn:hover{filter:brightness(.95)}
+
+    /* Hero banner */
+
+    .hero{
+      padding:40px 0 12px;
     }
 
-    .hero{text-align:center; padding:64px 0 24px}
+    .hero-banner{
+      background:linear-gradient(135deg,#181f2a,#11151d);
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      padding:24px 20px;
+      box-shadow:var(--shadow);
+    }
+
     .hero h1{
-      font-size:clamp(2.2rem,4vw,3.2rem);
-      margin:0 0 12px;
+      font-size:clamp(2.1rem,4vw,3rem);
+      margin:0 0 10px;
+      letter-spacing:.4px;
+      color:var(--text);
     }
+
     .hero p{
-      max-width:760px; margin:0 auto 26px;
-      color:var(--muted); line-height:1.6;
+      margin:0;
+      max-width:780px;
+      line-height:1.6;
+      color:var(--muted);
+      font-size:1.02rem;
     }
 
-    .badges{
-      display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
-      margin-bottom:14px;
-    }
-    .badge{
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-      font-size:.9rem;
-      color:#c9d2e3;
-    }
-
-    .cta{
-      display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
-    }
+    /* Sections */
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(12,1fr);
       gap:16px;
-      margin:40px 0;
+      grid-template-columns:repeat(12,1fr);
+      margin:32px 0;
     }
 
     .card{
-      grid-column:span 12;
-      background:var(--card);
+      grid-column: span 12;
+      background:linear-gradient(180deg, var(--card), #11161d);
       border:1px solid var(--border);
       border-radius:var(--radius);
       padding:22px;
       box-shadow:var(--shadow);
     }
 
-    .card h3{margin:0 0 10px; font-size:1.15rem}
-    .card p{margin:0; color:var(--muted); line-height:1.6}
-    .hint{margin-top:12px; font-size:.9rem; color:#cfd6e3}
-    .icon{color:var(--accent)}
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.15rem;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .card .hint{
+      margin-top:12px;
+      font-size:.93rem;
+      color:#cfd6e3;
+    }
+
+    .icon{
+      font-weight:900;
+      color:var(--accent);
+    }
 
     .section-title{
-      text-align:center;
       font-size:1.6rem;
-      margin-bottom:6px;
-    }
-    .section-subtitle{
+      margin:10px 0 4px;
       text-align:center;
-      color:var(--muted);
-      max-width:760px;
-      margin:0 auto 20px;
     }
 
-    /* Brands */
+    .section-subtitle{
+      max-width:780px;
+      margin:0 auto 14px;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:.98rem;
+    }
+
+    footer{
+      margin:52px 0 20px;
+      text-align:center;
+      color:#98a2b3;
+      font-size:.95rem;
+    }
+
+    /* Family of brands */
+
+    .brands{
+      margin:40px 0 10px;
+    }
+
     .brands-grid{
       display:grid;
-      gap:16px;
+      gap:14px;
       grid-template-columns:repeat(12,1fr);
+      margin-top:20px;
     }
 
     .brand-card{
       grid-column:span 12;
-      background:#11161d;
-      border:1px solid var(--border);
       border-radius:var(--radius);
-      padding:18px;
+      border:1px solid var(--border);
+      background:#11161d;
+      padding:18px 18px 14px;
+      box-shadow:0 8px 20px rgba(0,0,0,.35);
     }
 
-    .brand-domain{color:var(--muted); font-size:.9rem; margin-bottom:6px}
-    .brand-pill{
-      display:inline-block;
-      padding:3px 8px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-      border-radius:999px;
-      font-size:.78rem;
+    .brand-card h4{
+      margin:0 0 6px;
+      font-size:1rem;
+    }
+
+    .brand-domain{
+      font-size:.9rem;
+      color:var(--muted);
       margin-bottom:6px;
     }
-    .brand-card p{margin:0; color:var(--muted); font-size:.9rem; line-height:1.5}
 
-    footer{
-      margin:60px 0 20px;
-      text-align:center;
-      color:#98a2b3;
+    .brand-pill{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:.78rem;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      margin-bottom:6px;
+    }
+
+    .brand-card p{
+      margin:0;
+      font-size:.9rem;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    /* Per-brand color accents */
+
+    .brand-card--285{
+      border-color:#37b3c4;
+      background:radial-gradient(circle at 0 0,rgba(55,179,196,.16),#11161d);
+    }
+
+    .brand-card--jaxroxy{
+      border-color:#f2a766;
+      background:radial-gradient(circle at 0 0,rgba(242,167,102,.18),#11161d);
+    }
+
+    .brand-card--pineworks{
+      border-color:#8fbf6a;
+      background:radial-gradient(circle at 0 0,rgba(143,191,106,.2),#11161d);
+    }
+
+    .brand-card--kitchen{
+      border-color:#ffb85c;
+      background:radial-gradient(circle at 0 0,rgba(255,184,92,.18),#11161d);
+    }
+
+    .brand-card--restingpine{
+      border-color:#c7aa7a;
+      background:radial-gradient(circle at 0 0,rgba(199,170,122,.18),#11161d);
+    }
+
+    .brand-card--wildflower{
+      border-color:#d984c4;
+      background:radial-gradient(circle at 0 0,rgba(217,132,196,.18),#11161d);
+    }
+
+    .brand-card--cooljob{
+      border-color:#6fb4ff;
+      background:radial-gradient(circle at 0 0,rgba(111,180,255,.18),#11161d);
+    }
+
+    .brand-card--kernel{
+      border-color:#ff9f5a;
+      background:radial-gradient(circle at 0 0,rgba(255,159,90,.2),#11161d);
+    }
+
+    .brand-card--rootchaos{
+      border-color:#ff6e6e;
+      background:radial-gradient(circle at 0 0,rgba(255,110,110,.18),#11161d);
+    }
+
+    .brand-card--harpokrates{
+      border-color:#9e8cff;
+      background:radial-gradient(circle at 0 0,rgba(158,140,255,.2),#11161d);
+    }
+
+    .brand-card--enginerd{
+      border-color:#5cd3c9;
+      background:radial-gradient(circle at 0 0,rgba(92,211,201,.2),#11161d);
+    }
+
+    .brand-card--jordan{
+      border-color:#9ba4b8;
+      background:radial-gradient(circle at 0 0,rgba(155,164,184,.22),#11161d);
     }
 
     @media (min-width:760px){
-      .card{grid-column:span 6}
-      .brand-card{grid-column:span 6}
+      .card{grid-column: span 6}
+      .brands-grid .brand-card{grid-column:span 6}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-
     <header>
-      <a class="brand" href="/">
-        <div class="logo">
-          <img src="assets/logo_small.png" alt="AmesGate logo">
+      <a class="brand" href="/" aria-label="AmesGate home">
+        <div class="logo" aria-hidden="true">
+          <img src="/images/logo_small.png" alt="AmesGate logo">
         </div>
         <div>
           <div class="name">AmesGate</div>
           <div class="tag">Practical IT for Small Businesses</div>
         </div>
       </a>
-
       <a class="btn" href="mailto:info@amesgate.com">Contact</a>
     </header>
 
-    <section class="hero">
-      <div class="badges">
-        <div class="badge">Email &amp; Domains</div>
-        <div class="badge">Wi-Fi &amp; Networking</div>
-        <div class="badge">Security &amp; Backups</div>
-        <div class="badge">Small Business IT</div>
-      </div>
-
-      <h1>Modern, reliable tech for small businesses.</h1>
-      <p>
-        We help local teams get their technology under control — email, devices, Wi-Fi,
-        websites, security, and everyday problems handled by someone who actually builds
-        and fixes this stuff in the real world.
-      </p>
-
-      <div class="cta">
-        <a class="btn" href="mailto:info@amesgate.com?subject=Let%27s%20fix%20our%20IT">Start a conversation</a>
-        <a class="btn ghost" href="#services">See what we do</a>
+    <!-- Simple hero banner -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-banner">
+        <h1 id="hero-title">Modern, reliable tech for small businesses.</h1>
+        <p>
+          We help local teams get their technology under control — email, devices, Wi-Fi, websites,
+          security, and everyday problems handled by someone who actually builds and fixes this stuff
+          in the real world.
+        </p>
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
+    <!-- Small-business services -->
+    <section id="services" aria-label="Small business services">
       <h2 class="section-title">What we do for small businesses</h2>
       <p class="section-subtitle">
-        No retainers, no mystery fees — just clear, practical help with the tech that keeps your business running.
+        No retainers, no mystery fees. Just clear, practical help with the tech that keeps your business running.
       </p>
 
       <div class="grid">
-
         <article class="card">
           <h3><span class="icon">🔧</span> Technology Setup &amp; Fix-It Services</h3>
-          <p>We fix or set up domains, email, devices, and accounts so your business actually works.</p>
-          <p class="hint"><strong>Common requests:</strong> fix email, set up Microsoft 365, solve sign-in issues.</p>
+          <p>
+            We set up or repair domains, email, devices, and accounts so your business actually runs smoothly.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> fix email, set up Microsoft 365, straighten out user accounts, solve sign-in issues.
+          </p>
         </article>
 
         <article class="card">
-          <h3><span class="icon">📶</span> Office Networking &amp; Reliable Wi-Fi</h3>
-          <p>Strong Wi-Fi, stable internet, and clean network setups without the chaos.</p>
-          <p class="hint"><strong>Common requests:</strong> remove dead zones, fix dropouts, upgrade routers.</p>
+          <h3><span class="icon">📶</span> Office Networking &amp; Wi-Fi Reliability</h3>
+          <p>
+            Wi-Fi that reaches everywhere, stable internet, and clean network setups without the chaos.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> remove dead zones, fix dropouts, upgrade routers, organize cables.
+          </p>
         </article>
 
         <article class="card">
           <h3><span class="icon">🔐</span> Security, Backups &amp; Peace of Mind</h3>
-          <p>Practical security: MFA, safe sharing, and backups that actually work.</p>
-          <p class="hint"><strong>Common requests:</strong> secure laptops, protect data, enable MFA.</p>
+          <p>
+            Practical protection: secure devices, MFA, safe document sharing, and backups you can count on.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> protect data, enable MFA, secure laptops, set up reliable backups.
+          </p>
         </article>
 
         <article class="card">
           <h3><span class="icon">📨</span> Email, Websites &amp; Professional Identity</h3>
-          <p>Make your business look legitimate with proper domains, email, and website fixes.</p>
-          <p class="hint"><strong>Common requests:</strong> DNS repair, business email setup, website fixes.</p>
+          <p>
+            Make your business look legitimate and run professionally with proper domains, email, and website help.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> move off personal Gmail, repair DNS, business email setup, fix website issues.
+          </p>
         </article>
 
         <article class="card">
-          <h3><span class="icon">🧯</span> Emergency Support</h3>
-          <p>Fast help when something breaks — remote or onsite depending on location.</p>
-          <p class="hint"><strong>Common requests:</strong> outages, POS failures, password issues.</p>
+          <h3><span class="icon">🧯</span> Emergency Support &amp; Troubleshooting</h3>
+          <p>
+            Fast help when something breaks — remote or on-site depending on location.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> everything stopped working, password lockouts, broken apps, POS failures.
+          </p>
         </article>
 
         <article class="card">
           <h3><span class="icon">📊</span> Tech Planning &amp; Second Opinions</h3>
-          <p>Clear answers without sales pressure — upgrade plans, hardware advice, honest opinions.</p>
-          <p class="hint"><strong>Common requests:</strong> “Is this quote legit?”, “What should we upgrade first?”</p>
+          <p>
+            Clear answers without sales pressure: hardware recommendations, vendor quote reviews, and simple upgrade plans.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> “Are we set up correctly?”, “Is this quote legit?”, “What should we upgrade first?”
+          </p>
         </article>
 
+        <article class="card">
+          <h3><span class="icon">💻</span> Devices, PCs &amp; Workstations</h3>
+          <p>
+            New computers, rebuilds, and tune-ups so staff machines are fast, stable, and backed up.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> new PC setup, slow computers, shared printers, profile migrations.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3><span class="icon">📚</span> Training, Checklists &amp; Simple Guides</h3>
+          <p>
+            One-on-one coaching and easy documentation so your team knows what to click and what to avoid.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> “don’t get phished” basics, how-to guides, new-hire IT checklists.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- Brands -->
-    <section class="brands">
-      <h2 class="section-title">AmesGate family of brands</h2>
+    <!-- AmesGate family of brands -->
+    <section class="brands" aria-labelledby="brands-title">
+      <h2 id="brands-title" class="section-title">AmesGate family of brands</h2>
       <p class="section-subtitle">
-        A collection of focused projects — from homestead builds and handmade goods to
-        security research and future-ready communications.
+        AmesGate also powers a set of focused projects — from homestead builds and handmade goods
+        to security research, creative tech, and future-ready communications.
       </p>
 
       <div class="brands-grid">
-
-        <article class="brand-card">
+        <article class="brand-card brand-card--285">
           <h4>285Live</h4>
-          <div class="brand-domain">285live.net · Community & Connectivity</div>
-          <span class="brand-pill">Future ISP & CB Network</span>
-          <p>A resilient, community-centered network for connect-while-you-can and survive-when-you-must operations.</p>
+          <div class="brand-domain">285live.net · Community &amp; Connectivity</div>
+          <span class="brand-pill">Future local ISP &amp; CB network</span>
+          <p>
+            A resilient, community-focused network for the 285 corridor — part neighborhood hub,
+            part off-grid communications. Designed to keep people connected with no ads while the
+            grid is up, and still useful when it’s not if you have the right gear.
+          </p>
         </article>
 
-        <article class="brand-card">
-          <h4>Jax & Roxy</h4>
-          <div class="brand-domain">jaxandroxy.com · Dogs & Care</div>
-          <span class="brand-pill">Pet care</span>
-          <p>Ethically sourced balms, treats, and gear inspired by two adventure dogs with medical histories.</p>
+        <article class="brand-card brand-card--jaxroxy">
+          <h4>Jax &amp; Roxy</h4>
+          <div class="brand-domain">jaxandroxy.com · Dogs, Trails &amp; Care</div>
+          <span class="brand-pill">Pet care &amp; products</span>
+          <p>
+            Named after two adventure dogs with big medical stories, Jax &amp; Roxy offers
+            thoughtfully sourced balms, treats, and trail-ready gear focused on comfort, healing,
+            and getting back outside together.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--pineworks">
           <h4>Rocky Mountain Pineworks</h4>
-          <div class="brand-domain">rockymountainpineworks.com · Builds & Woodcraft</div>
-          <span class="brand-pill">Workshop & crafts</span>
-          <p>Real builds filmed and shared — woodworking, forge, outdoor kitchen, stonework, and handmade pieces.</p>
+          <div class="brand-domain">rockymountainpineworks.com · Builds &amp; Woodcraft</div>
+          <span class="brand-pill">Workshops &amp; handmade goods</span>
+          <p>
+            A working homestead shop documenting real builds — from workshop and forge to outdoor
+            kitchen and stonework — while turning salvaged wood and local materials into functional,
+            nature-rooted pieces.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--kitchen">
           <h4>The Pineworks Kitchen</h4>
-          <div class="brand-domain">thepineworkskitchen.com · Food & Fire</div>
-          <span class="brand-pill">Outdoor cooking</span>
-          <p>Recipes and cooking filmed directly in the Pineworks outdoor kitchen using fire, cast iron, and local ingredients.</p>
+          <div class="brand-domain">thepineworkskitchen.com · Food &amp; Fire</div>
+          <span class="brand-pill">Outdoor cooking &amp; recipes</span>
+          <p>
+            A cooking project built around the Pineworks outdoor kitchen — open fire, cast iron,
+            local ingredients, and simple recipes filmed and shared from the homestead.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--restingpine">
           <h4>The Resting Pine</h4>
-          <div class="brand-domain">therestingpine.com · Ornaments & Gifts</div>
-          <span class="brand-pill">Handmade goods</span>
-          <p>Real Colorado pine slices turned into ornaments, tags, and rustic crafts.</p>
+          <div class="brand-domain">therestingpine.com · Ornaments &amp; Gifts</div>
+          <span class="brand-pill">Handmade decor</span>
+          <p>
+            Real Colorado pine slices turned into ornaments, tags, and small gifts — a quiet, slow
+            craft line built from the same trees that heat the house in winter.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--wildflower">
           <h4>Wildflower Whims</h4>
-          <div class="brand-domain">wildflowerwhims.com · Nature-Inspired Goods</div>
+          <div class="brand-domain">wildflowerwhims.com · Nature-inspired Goods</div>
           <span class="brand-pill">Whimsical products</span>
-          <p>Soaps, wraps, and light-hearted handmade goods for markets and gift buyers.</p>
+          <p>
+            Light-hearted, nature-inspired soaps, wraps, and small goods — the playful side of the
+            homestead brands, built for markets, pop-ups, and gift buyers.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--cooljob">
           <h4>Get a Cool Job Real Fast</h4>
           <div class="brand-domain">getacooljobrealfast.work · Career Tools</div>
-          <span class="brand-pill">Students & seekers</span>
-          <p>Once a joke assignment, now a real toolkit helping students land internships and jobs—no spammy nonsense.</p>
+          <span class="brand-pill">Students &amp; job seekers</span>
+          <p>
+            Originally built as a joke for a phishing assignment, now evolving into a straightforward
+            toolkit to help students and career-changers land real jobs and internships without spammy
+            tactics or clickbait.
+          </p>
         </article>
 
-        <article class="brand-card">
-          <h4>Kernel Carnival</h4>
-          <div class="brand-domain">kernelcarnival.com · Popcorn & Events</div>
-          <span class="brand-pill">Local vendors</span>
-          <p>A popcorn brand designed to be run with and for local partners with AmesGate handling safety and systems.</p>
+        <article class="brand-card brand-card--kernel">
+          <h4>Kernel Cernival</h4>
+          <div class="brand-domain">kernelcernival.com · Popcorn &amp; Events</div>
+          <span class="brand-pill">Local food &amp; vendors</span>
+          <p>
+            A popcorn concept meant to be run with and for local partners — AmesGate focuses on the
+            standards, safety, and systems so trusted vendors can bring the flavor to markets and events.
+          </p>
         </article>
 
-        <article class="brand-card">
-          <h4>RootChaos & RootChaos Analysis</h4>
+        <article class="brand-card brand-card--rootchaos">
+          <h4>RootChaos &amp; RootChaos Analysis</h4>
           <div class="brand-domain">rootchaos.com · rootchaosanalysis.com</div>
-          <span class="brand-pill">Security (in progress)</span>
-          <p>Future home of deep security, monitoring, and diagnostic tooling built on your lab rack.</p>
+          <span class="brand-pill">Security &amp; observability (in progress)</span>
+          <p>
+            A future home for deeper security, monitoring, and root-cause analysis work, built on top of
+            the same lab rack and infrastructure projects documented through AmesGate.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--harpokrates">
           <h4>Harpokrates</h4>
           <div class="brand-domain">harpokrates.io · Quiet Security</div>
-          <span class="brand-pill">Research</span>
-          <p>Security experiments centered on silence, discipline, and operational minimalism.</p>
+          <span class="brand-pill">Security research</span>
+          <p>
+            An experiment space for security concepts centered on silence, discretion, and disciplined
+            operations — more research lab than product, for now.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--enginerd">
           <h4>Overly Enginerd</h4>
-          <div class="brand-domain">overlyenginerd.com · Content & Tools</div>
-          <span class="brand-pill">Nerdy builds</span>
-          <p>Where your over-engineered projects live before becoming full AmesGate offerings.</p>
+          <div class="brand-domain">overlyenginerd.com · Content &amp; Tools</div>
+          <span class="brand-pill">Nerdy builds &amp; utilities</span>
+          <p>
+            A playground for overly engineered ideas, utilities, and content — the place where experiments
+            live before they grow into full AmesGate offerings.
+          </p>
         </article>
 
-        <article class="brand-card">
+        <article class="brand-card brand-card--jordan">
           <h4>Jordan Ames</h4>
           <div class="brand-domain">jordanames.net · Personal Site</div>
-          <span class="brand-pill">Portfolio</span>
-          <p>Your personal hub for writing, projects, and connections between all brands.</p>
+          <span class="brand-pill">Portfolio &amp; writing</span>
+          <p>
+            The personal hub for Jordan Ames — long-form writing, portfolio projects, and connective tissue
+            between all of these brands and experiments.
+          </p>
         </article>
-
       </div>
     </section>
 
@@ -379,8 +577,7 @@
   </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
