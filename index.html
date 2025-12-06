@@ -5,480 +5,452 @@
     var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src="https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("head")[0].appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["trackEvent","trackPageView","trackException","trackTrace","trackDependencyData","flush"],o=0;o<r.length;o++)n(r[o]);return t}({ connectionString:"InstrumentationKey=79a5e827-b7b9-4ef0-8346-c3719dfacf19;IngestionEndpoint=https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint=https://centralus.livediagnostics.monitor.azure.com/;ApplicationId=3aaac8e1-3ff8-4c96-97d3-a62385437651" });window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
   </script>
 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AmesGate — Technology, Infrastructure, and Creative Engineering</title>
-    <meta
-      name="description"
-      content="AmesGate builds reliable Microsoft 365 and Azure foundations, ironclad infrastructure, and creative tech experiences."
-    />
-    <meta property="og:title" content="AmesGate" />
-    <meta
-      property="og:description"
-      content="Reliable cloud foundations. Ironclad infrastructure. Creative engineering."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.amesgate.com/" />
-    <meta name="theme-color" content="#0f1115" />
-    <link rel="icon" href="/favicon.ico" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AmesGate — Practical IT for Small Businesses</title>
+  <meta name="description" content="AmesGate helps small businesses get their technology under control — email, domains, Wi-Fi, devices, backups, and everyday IT problems handled without corporate nonsense." />
+  <meta property="og:title" content="AmesGate" />
+  <meta property="og:description" content="Modern, reliable tech for small businesses — straightforward help with email, devices, Wi-Fi, websites, security, and everyday issues." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.amesgate.com/" />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="icon" href="/favicon.ico" />
 
-    <style>
-      :root{
-        --bg:#0f1115;
-        --bg2:#141821;
-        --text:#e7e9ee;
-        --muted:#a7b0c0;
-        --accent:#e26d5c;   /* copper/red */
-        --accent2:#7ec59b;  /* subtle growth green */
-        --card:#151a22;
-        --border:#232a36;
-        --max:1080px;
-        --radius:16px;
-        --shadow:0 10px 30px rgba(0,0,0,.35);
-      }
-      *{box-sizing:border-box}
-      html,body{
-        margin:0;
-        height:100%;
-        background:
-          radial-gradient(1200px 600px at 70% -20%, #1a202b 0%, var(--bg) 60%),
-          linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-        color:var(--text);
-        font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      }
-      a{color:#79b7ff;text-decoration:none}
-      a:hover{text-decoration:underline}
-      .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
-      header{display:flex; align-items:center; justify-content:space-between; gap:16px}
-      .brand{display:flex; align-items:center; gap:14px; text-decoration:none}
-      .logo{
-        width:44px; height:44px; border-radius:12px;
-        background:linear-gradient(135deg,#3a3f49,#1f232b);
-        border:1px solid var(--border);
-        display:grid; place-items:center;
-        box-shadow:var(--shadow)
-      }
-      .logo span{font-weight:800; color:var(--accent); letter-spacing:.5px}
-      .name{font-weight:700; font-size:1.1rem; letter-spacing:.4px}
-      .tag{color:var(--muted); font-size:.95rem}
-      .btn{
-        display:inline-block;
-        padding:10px 16px;
-        border-radius:12px;
-        background:var(--accent);
-        color:#111;
-        font-weight:700;
-        border:1px solid rgba(255,255,255,.08);
-        box-shadow:var(--shadow)
-      }
-      .btn:hover{filter:brightness(.95)}
-      .hero{padding:64px 0 24px; text-align:center}
-      .hero h1{
-        font-size:clamp(2.2rem,4vw,3.2rem);
-        margin:0 0 10px;
-        letter-spacing: .6px;
-        color:var(--text)
-      }
-      .hero p{
-        margin:0 auto 26px;
-        max-width:760px;
-        line-height:1.6;
-        color:var(--muted);
-        font-size:1.1rem
-      }
-      .badges{
-        display:flex; gap:10px;
-        justify-content:center;
-        flex-wrap:wrap;
-        margin:20px 0 6px
-      }
-      .badge{
-        padding:6px 10px;
-        border:1px solid var(--border);
-        border-radius:999px;
-        background:rgba(255,255,255,.02);
-        color:#c9d2e3;
-        font-size:.9rem
-      }
-      .grid{
-        display:grid;
-        gap:16px;
-        grid-template-columns:repeat(12,1fr);
-        margin:36px 0
-      }
-      .card{
-        grid-column: span 12;
-        background:linear-gradient(180deg, var(--card), #11161d);
-        border:1px solid var(--border);
-        border-radius:var(--radius);
-        padding:22px;
-        box-shadow:var(--shadow)
-      }
-      .card h3{margin:0 0 10px; font-size:1.2rem}
-      .card p{margin:0; color:var(--muted); line-height:1.6}
-      .card .hint{margin-top:12px; font-size:.93rem; color:#cfd6e3}
-      .icon{font-weight:900; color:var(--accent)}
-      .cta{
-        display:flex;
-        gap:12px;
-        justify-content:center;
-        margin:34px 0 6px;
-        flex-wrap:wrap
-      }
-      .cta .ghost{
-        background:transparent;
-        border:1px solid var(--border);
-        color:var(--text)
-      }
-      footer{
-        margin:52px 0 20px;
-        text-align:center;
-        color:#98a2b3;
-        font-size:.95rem
-      }
-      @media (min-width:760px){
-        .card{grid-column: span 6}
-        .card.wide{grid-column: span 12}
-      }
+  <style>
+    :root{
+      --bg:#0f1115;
+      --bg2:#141821;
+      --text:#e7e9ee;
+      --muted:#a7b0c0;
+      --accent:#e26d5c;   /* copper/red */
+      --accent2:#7ec59b;  /* subtle growth green */
+      --card:#151a22;
+      --border:#232a36;
+      --max:1080px;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      height:100%;
+      background:
+        radial-gradient(1200px 600px at 70% -20%, #1a202b 0%, var(--bg) 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    }
+    a{color:#79b7ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none}
+    .logo{
+      width:44px; height:44px; border-radius:12px;
+      background:linear-gradient(135deg,#3a3f49,#1f232b);
+      border:1px solid var(--border);
+      display:grid; place-items:center;
+      box-shadow:var(--shadow);
+    }
+    .logo span{font-weight:800; color:var(--accent); letter-spacing:.5px}
+    .name{font-weight:700; font-size:1.1rem; letter-spacing:.4px}
+    .tag{color:var(--muted); font-size:.95rem}
+    .btn{
+      display:inline-block; padding:10px 16px;
+      border-radius:12px;
+      background:var(--accent); color:#111;
+      font-weight:700;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+    .btn:hover{filter:brightness(.95)}
+    .btn.ghost{
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+    .hero{padding:64px 0 24px; text-align:center}
+    .hero h1{
+      font-size:clamp(2.2rem,4vw,3.2rem);
+      margin:0 0 10px;
+      letter-spacing:.4px;
+      color:var(--text);
+    }
+    .hero p{
+      margin:0 auto 26px;
+      max-width:780px;
+      line-height:1.6;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+    .badges{
+      display:flex; gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin:10px 0 14px;
+    }
+    .badge{
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.02);
+      color:#c9d2e3;
+      font-size:.9rem;
+    }
+    .cta{
+      display:flex; gap:12px;
+      justify-content:center;
+      margin:26px 0 6px;
+      flex-wrap:wrap;
+    }
+    .grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(12,1fr);
+      margin:36px 0;
+    }
+    .card{
+      grid-column: span 12;
+      background:linear-gradient(180deg, var(--card), #11161d);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.15rem;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .card .hint{
+      margin-top:12px;
+      font-size:.93rem;
+      color:#cfd6e3;
+    }
+    .icon{font-weight:900; color:var(--accent)}
+    .section-title{
+      font-size:1.6rem;
+      margin:10px 0 4px;
+      text-align:center;
+    }
+    .section-subtitle{
+      max-width:780px;
+      margin:0 auto 14px;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:.98rem;
+    }
+    footer{
+      margin:52px 0 20px;
+      text-align:center;
+      color:#98a2b3;
+      font-size:.95rem;
+    }
 
-      /* ---- Family of Brands styling ---- */
-      .brands {
-        margin: 52px 0 32px;
-      }
+    /* Family of brands */
+    .brands{
+      margin:40px 0 10px;
+    }
+    .brands-grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns:repeat(12,1fr);
+      margin-top:20px;
+    }
+    .brand-card{
+      grid-column:span 12;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:#11161d;
+      padding:18px 18px 14px;
+    }
+    .brand-card h4{
+      margin:0 0 6px;
+      font-size:1rem;
+    }
+    .brand-domain{
+      font-size:.9rem;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .brand-pill{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:.78rem;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      margin-bottom:6px;
+    }
+    .brand-card p{
+      margin:0;
+      font-size:.9rem;
+      color:var(--muted);
+      line-height:1.5;
+    }
 
-      .brands h2 {
-        text-align: center;
-        font-size: clamp(1.6rem, 3vw, 2rem);
-        margin: 0 0 10px;
-        letter-spacing: .6px;
-      }
+    @media (min-width:760px){
+      .card{grid-column: span 6}
+      .brands-grid .brand-card{grid-column:span 6}
+    }
+  </style>
+</head>
 
-      .brands-intro {
-        max-width: 780px;
-        margin: 0 auto 28px;
-        text-align: center;
-        color: var(--muted);
-        line-height: 1.6;
-        font-size: 0.98rem;
-      }
-
-      .brands-grid .brand-card {
-        grid-column: span 12;
-      }
-
-      .brand-domain {
-        font-size: 0.9rem;
-        color: var(--muted);
-        margin-bottom: 6px;
-      }
-
-      .brand-domain a {
-        color: #c2cbe0;
-        text-decoration: none;
-        word-break: break-all;
-      }
-
-      .brand-domain a:hover {
-        text-decoration: underline;
-      }
-
-      @media (min-width: 760px) {
-        .brands-grid .brand-card {
-          grid-column: span 6;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="wrap">
-      <header>
-        <a class="brand" href="/" aria-label="AmesGate home">
-          <div class="logo" aria-hidden="true"><span>AG</span></div>
-          <div>
-            <div class="name">AmesGate</div>
-            <div class="tag">Technology · Infrastructure · Creative Engineering</div>
-          </div>
-        </a>
-        <a class="btn" href="mailto:info@amesgate.com">Contact</a>
-      </header>
-
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="badges">
-          <div class="badge">Microsoft 365</div>
-          <div class="badge">Azure</div>
-          <div class="badge">Security &amp; Identity</div>
-          <div class="badge">Automation</div>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/" aria-label="AmesGate home">
+        <div class="logo" aria-hidden="true"><span>AG</span></div>
+        <div>
+          <div class="name">AmesGate</div>
+          <div class="tag">Practical IT for Small Businesses</div>
         </div>
-        <h1 id="hero-title">Reliable cloud foundations. Ironclad infrastructure. Creative engineering.</h1>
-        <p>
-          AmesGate designs and operates practical, resilient systems—rooted in Microsoft 365 and Azure—with the
-          craftsmanship of a shop that actually builds, fixes, and runs things in the real world.
-        </p>
-        <div class="cta">
-          <a class="btn" href="mailto:info@amesgate.com?subject=Project%20Inquiry">
-            Start a conversation
-          </a>
-          <a class="btn ghost" href="mailto:press@amesgate.com?subject=Press%20or%20Speaking%20Inquiry">
-            Press &amp; inquiries
-          </a>
-        </div>
-      </section>
+      </a>
+      <a class="btn" href="mailto:info@amesgate.com">Contact</a>
+    </header>
 
-      <!-- Core capabilities -->
-      <section class="grid" aria-label="Capabilities">
-        <article class="card">
-          <h3><span class="icon">⛭</span> Microsoft 365 Foundations</h3>
-          <p>
-            Tenant architecture, Entra ID, security baselines, conditional access, device posture, and zero-drama
-            operations.
-          </p>
-          <p class="hint"><strong>Outcome:</strong> predictable sign-ins, clean governance, fewer “mystery” issues.</p>
-        </article>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="badges">
+        <div class="badge">Email &amp; Domains</div>
+        <div class="badge">Wi-Fi &amp; Networking</div>
+        <div class="badge">Security &amp; Backups</div>
+        <div class="badge">Small Business IT</div>
+      </div>
+      <h1 id="hero-title">Modern, reliable tech for small businesses.</h1>
+      <p>
+        We help local teams get their technology under control — email, devices, Wi-Fi, websites,
+        security, and everyday problems handled by someone who actually builds and fixes this stuff
+        in the real world.
+      </p>
+      <div class="cta">
+        <a class="btn" href="mailto:info@amesgate.com?subject=Let%27s%20fix%20our%20IT">Start a conversation</a>
+        <a class="btn ghost" href="#services">See what we do</a>
+      </div>
+    </section>
 
-        <article class="card">
-          <h3><span class="icon">☁</span> Azure Infrastructure</h3>
-          <p>
-            Landing zones, network segmentation, identity-first access, IaC (Bicep/Terraform), monitoring with
-            Application Insights &amp; Log Analytics.
-          </p>
-          <p class="hint"><strong>Outcome:</strong> scalable environments that are easy to audit and easy to fix.</p>
-        </article>
+    <!-- Small-business services -->
+    <section id="services" aria-label="Small business services">
+      <h2 class="section-title">What we do for small businesses</h2>
+      <p class="section-subtitle">
+        No retainers, no mystery fees. Just clear, practical help with the tech that keeps your business running.
+      </p>
+
+      <div class="grid">
 
         <article class="card">
-          <h3><span class="icon">🔒</span> Security &amp; Resilience</h3>
+          <h3><span class="icon">🔧</span> Technology Setup &amp; Fix-It Services</h3>
           <p>
-            Defender for Cloud, backup strategy, least-privilege, secrets in Key Vault, incident hygiene and recovery
-            drills.
+            We set up or repair domains, email, devices, and accounts so your business actually runs smoothly.
           </p>
-          <p class="hint"><strong>Outcome:</strong> fewer surprises, faster recoveries.</p>
+          <p class="hint">
+            <strong>Common requests:</strong> fix email, set up Microsoft 365, straighten out user accounts, solve sign-in issues.
+          </p>
         </article>
 
         <article class="card">
-          <h3><span class="icon">⚡</span> Automation &amp; Tooling</h3>
+          <h3><span class="icon">📶</span> Office Networking &amp; Wi-Fi Reliability</h3>
           <p>
-            PowerShell, GitHub Actions, Functions, and Container Apps to reduce toil and make good habits the default
-            path.
+            Wi-Fi that reaches everywhere, stable internet, and clean network setups without the chaos.
           </p>
-          <p class="hint"><strong>Outcome:</strong> hours back every week—and happier on-call.</p>
-        </article>
-
-        <article class="card wide">
-          <h3><span class="icon">✧</span> Creative Tech</h3>
-          <p>
-            Static web experiences, low-maintenance sites, and integrations that feel crafted—not duct-taped. AmesGate
-            also powers a family of brands across crafts, homestead projects, local connectivity, and education.
+          <p class="hint">
+            <strong>Common requests:</strong> remove dead zones, fix dropouts, upgrade routers, organize cables.
           </p>
         </article>
-      </section>
 
-      <!-- AmesGate Family of Brands -->
-      <section class="brands" aria-labelledby="brands-title">
-        <h2 id="brands-title">The AmesGate Family of Brands</h2>
-        <p class="brands-intro">
-          AmesGate isn’t just one site — it’s an ecosystem of brands spanning infrastructure, community tools,
-          crafts, homestead projects, and security. Here’s how the pieces fit together.
-        </p>
+        <article class="card">
+          <h3><span class="icon">🔐</span> Security, Backups &amp; Peace of Mind</h3>
+          <p>
+            Practical protection: secure devices, MFA, safe document sharing, and backups you can count on.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> protect data, enable MFA, secure laptops, set up reliable backups.
+          </p>
+        </article>
 
-        <div class="grid brands-grid" aria-label="AmesGate brands">
+        <article class="card">
+          <h3><span class="icon">📨</span> Email, Websites &amp; Professional Identity</h3>
+          <p>
+            We make your business look legitimate and run professionally with proper domains, email, and website help.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> move off personal Gmail, repair DNS, business email setup, fix website issues.
+          </p>
+        </article>
 
-          <!-- amesgate.com -->
-          <article class="card brand-card">
-            <h3>AmesGate</h3>
-            <div class="brand-domain">
-              <a href="https://www.amesgate.com" target="_blank" rel="noopener">amesgate.com</a>
-            </div>
-            <p>
-              The core engine behind every venture — a technology and operations company building cloud foundations,
-              resilient infrastructure, and creative engineered systems.
-            </p>
-          </article>
+        <article class="card">
+          <h3><span class="icon">🧯</span> Emergency Support &amp; Troubleshooting</h3>
+          <p>
+            Fast help when something breaks — remote or on-site depending on location.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> everything stopped working, password lockouts, broken apps, POS failures.
+          </p>
+        </article>
 
-          <!-- 285live.net -->
-          <article class="card brand-card">
-            <h3>285Live</h3>
-            <div class="brand-domain">
-              <a href="https://285live.net" target="_blank" rel="noopener">285live.net</a>
-            </div>
-            <p>
-              A community-first platform for the 285 corridor with no ads or algorithmic nonsense — built to keep
-              neighbors connected online and via off-grid comm towers when the grid doesn’t cooperate.
-            </p>
-          </article>
+        <article class="card">
+          <h3><span class="icon">📊</span> Tech Planning &amp; Second Opinions</h3>
+          <p>
+            Clear answers without sales pressure: hardware recommendations, vendor quote reviews, and simple upgrade plans.
+          </p>
+          <p class="hint">
+            <strong>Common requests:</strong> “Are we set up correctly?”, “Is this quote legit?”, “What should we upgrade first?”
+          </p>
+        </article>
 
-          <!-- getacooljobrealfast.work -->
-          <article class="card brand-card">
-            <h3>Get a Cool Job Real Fast</h3>
-            <div class="brand-domain">
-              <a href="https://getacooljobrealfast.work" target="_blank" rel="noopener">
-                getacooljobrealfast.work
-              </a>
-            </div>
-            <p>
-              Originally built as a parody for a cybersecurity class on phishing awareness, the site accidentally gained
-              real attention from students. Now it’s being rebuilt into a legitimate, student-focused career tool — a
-              place to find internships, entry-level jobs, templates, and practical guidance without ads or tracking.
-            </p>
-          </article>
+      </div>
+    </section>
 
-          <!-- jaxandroxy.com -->
-          <article class="card brand-card">
-            <h3>Jax &amp; Roxy</h3>
-            <div class="brand-domain">
-              <a href="https://jaxandroxy.com" target="_blank" rel="noopener">jaxandroxy.com</a>
-            </div>
-            <p>
-              A pet-wellness brand inspired by two real medical stories — Jax with lupus and Roxy with a rebuilt leg —
-              focused on ethical, locally sourced balms, remedies, and dog essentials that actually help.
-            </p>
-          </article>
+    <!-- AmesGate family of brands -->
+    <section class="brands" aria-labelledby="brands-title">
+      <h2 id="brands-title" class="section-title">AmesGate family of brands</h2>
+      <p class="section-subtitle">
+        AmesGate also powers a set of focused projects — from homestead builds and handmade goods
+        to security research, creative tech, and future-ready communications.
+      </p>
 
-          <!-- kernelcernival.com -->
-          <article class="card brand-card">
-            <h3>Kernel Cernival</h3>
-            <div class="brand-domain">
-              <a href="https://kernelcernival.com" target="_blank" rel="noopener">kernelcernival.com</a>
-            </div>
-            <p>
-              A gourmet popcorn concept built to be produced by local partners, while AmesGate handles health standards,
-              flavor direction, and brand experience.
-            </p>
-          </article>
+      <div class="brands-grid">
 
-          <!-- rockymountainpineworks.com -->
-          <article class="card brand-card">
-            <h3>Rocky Mountain Pineworks</h3>
-            <div class="brand-domain">
-              <a href="https://rockymountainpineworks.com" target="_blank" rel="noopener">
-                rockymountainpineworks.com
-              </a>
-            </div>
-            <p>
-              Your flagship craft and workshop brand — documenting the build of the shop on video and showcasing
-              handcrafted pine goods, forging, carving, and other maker projects.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>285Live</h4>
+          <div class="brand-domain">285live.net · Community &amp; Connectivity</div>
+          <span class="brand-pill">Future local ISP &amp; CB network</span>
+          <p>
+            A resilient, community-focused network for the 285 corridor — part neighborhood hub,
+            part off-grid communications. Designed to keep people connected with no ads while the
+            grid is up, and still useful when it’s not if you have the right gear.
+          </p>
+        </article>
 
-          <!-- rootchaos.com -->
-          <article class="card brand-card">
-            <h3>RootChaos</h3>
-            <div class="brand-domain">
-              <a href="https://rootchaos.com" target="_blank" rel="noopener">rootchaos.com</a>
-            </div>
-            <p>
-              A future technical research arm dedicated to understanding why systems fail, using real lab incidents,
-              chaos experiments, and deep root-cause analysis once the rack is fully online.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>Jax &amp; Roxy</h4>
+          <div class="brand-domain">jaxandroxy.com · Dogs, Trails &amp; Care</div>
+          <span class="brand-pill">Pet care &amp; products</span>
+          <p>
+            Named after two adventure dogs with big medical stories, Jax &amp; Roxy offers
+            thoughtfully sourced balms, treats, and trail-ready gear focused on comfort, healing,
+            and getting back outside together.
+          </p>
+        </article>
 
-          <!-- rootchaosanalysis.com -->
-          <article class="card brand-card">
-            <h3>RootChaos Analysis</h3>
-            <div class="brand-domain">
-              <a href="https://rootchaosanalysis.com" target="_blank" rel="noopener">
-                rootchaosanalysis.com
-              </a>
-            </div>
-            <p>
-              The reporting counterpart to RootChaos, focused on polished writeups, visual timelines, and
-              decision-ready summaries of complex incidents.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>Rocky Mountain Pineworks</h4>
+          <div class="brand-domain">rockymountainpineworks.com · Builds &amp; Woodcraft</div>
+          <span class="brand-pill">Workshops &amp; handmade goods</span>
+          <p>
+            A working homestead shop documenting real builds — from workshop and forge to outdoor
+            kitchen and stonework — while turning salvaged wood and local materials into functional,
+            nature-rooted pieces.
+          </p>
+        </article>
 
-          <!-- thepineworkskitchen.com -->
-          <article class="card brand-card">
-            <h3>The Pineworks Kitchen</h3>
-            <div class="brand-domain">
-              <a href="https://thepineworkskitchen.com" target="_blank" rel="noopener">
-                thepineworkskitchen.com
-              </a>
-            </div>
-            <p>
-              A homestead cooking brand centered on your outdoor Pineworks kitchen, with recipes and videos
-              filmed on-site around fire, stone, and mountain weather.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>The Pineworks Kitchen</h4>
+          <div class="brand-domain">thepineworkskitchen.com · Food &amp; Fire</div>
+          <span class="brand-pill">Outdoor cooking &amp; recipes</span>
+          <p>
+            A cooking project built around the Pineworks outdoor kitchen — open fire, cast iron,
+            local ingredients, and simple recipes filmed and shared from the homestead.
+          </p>
+        </article>
 
-          <!-- therestingpine.com -->
-          <article class="card brand-card">
-            <h3>The Resting Pine</h3>
-            <div class="brand-domain">
-              <a href="https://therestingpine.com" target="_blank" rel="noopener">therestingpine.com</a>
-            </div>
-            <p>
-              A calm, nature-inspired decor line focused on wood-slice ornaments and mountain-crafted home pieces
-              designed to bring quiet warmth into everyday spaces.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>The Resting Pine</h4>
+          <div class="brand-domain">therestingpine.com · Ornaments &amp; Gifts</div>
+          <span class="brand-pill">Handmade decor</span>
+          <p>
+            Real Colorado pine slices turned into ornaments, tags, and small gifts — a quiet, slow
+            craft line built from the same trees that heat the house in winter.
+          </p>
+        </article>
 
-          <!-- wildflowerwhims.com -->
-          <article class="card brand-card">
-            <h3>Wildflower Whims</h3>
-            <div class="brand-domain">
-              <a href="https://wildflowerwhims.com" target="_blank" rel="noopener">wildflowerwhims.com</a>
-            </div>
-            <p>
-              A bright, playful craft brand serving colorful handmade decor and gifts with a focus on joy,
-              whimsy, and expressive creativity.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>Wildflower Whims</h4>
+          <div class="brand-domain">wildflowerwhims.com · Nature-inspired Goods</div>
+          <span class="brand-pill">Whimsical products</span>
+          <p>
+            Light-hearted, nature-inspired soaps, wraps, and small goods — the playful side of the
+            homestead brands, built for markets, pop-ups, and gift buyers.
+          </p>
+        </article>
 
-          <!-- harpokrates.io -->
-          <article class="card brand-card">
-            <h3>Harpokrates</h3>
-            <div class="brand-domain">
-              <a href="https://harpokrates.io" target="_blank" rel="noopener">harpokrates.io</a>
-            </div>
-            <p>
-              A security and privacy brand built around encryption, silence, and operational discretion,
-              eventually housing tools and frameworks for secure-by-default systems.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>Get a Cool Job Real Fast</h4>
+          <div class="brand-domain">getacooljobrealfast.work · Career Tools</div>
+          <span class="brand-pill">Students &amp; job seekers</span>
+          <p>
+            Originally built as a joke for a phishing assignment, now evolving into a straightforward
+            toolkit to help students and career-changers land real jobs and internships without spammy
+            tactics or clickbait.
+          </p>
+        </article>
 
-          <!-- jordanames.net -->
-          <article class="card brand-card">
-            <h3>Jordan Ames</h3>
-            <div class="brand-domain">
-              <a href="https://jordanames.net" target="_blank" rel="noopener">jordanames.net</a>
-            </div>
-            <p>
-              Your personal hub for portfolio work, case studies, credentials, and writing — the human face
-              behind AmesGate and its ecosystem.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>Kernel Cernival</h4>
+          <div class="brand-domain">kernelcernival.com · Popcorn &amp; Events</div>
+          <span class="brand-pill">Local food &amp; vendors</span>
+          <p>
+            A popcorn concept meant to be run with and for local partners — AmesGate focuses on the
+            standards, safety, and systems so trusted vendors can bring the flavor to markets and events.
+          </p>
+        </article>
 
-          <!-- overlyenginerd.com -->
-          <article class="card brand-card">
-            <h3>Overly Enginerd</h3>
-            <div class="brand-domain">
-              <a href="https://overlyenginerd.com" target="_blank" rel="noopener">overlyenginerd.com</a>
-            </div>
-            <p>
-              A comedy-tech brand celebrating glorious overengineering — stories, ideas, and merch for people
-              who fix what isn’t broken simply because they can.
-            </p>
-          </article>
+        <article class="brand-card">
+          <h4>RootChaos &amp; RootChaos Analysis</h4>
+          <div class="brand-domain">rootchaos.com · rootchaosanalysis.com</div>
+          <span class="brand-pill">Security &amp; observability (in progress)</span>
+          <p>
+            A future home for deeper security, monitoring, and root-cause analysis work, built on top of
+            the same lab rack and infrastructure projects documented through AmesGate.
+          </p>
+        </article>
 
-        </div>
-      </section>
+        <article class="brand-card">
+          <h4>Harpokrates</h4>
+          <div class="brand-domain">harpokrates.io · Quiet Security</div>
+          <span class="brand-pill">Security research</span>
+          <p>
+            An experiment space for security concepts centered on silence, discretion, and disciplined
+            operations — more research lab than product, for now.
+          </p>
+        </article>
 
-      <!-- Contact / CTA -->
-      <section class="hero" aria-label="Get in touch">
-        <p>Want AmesGate to design your foundations or tighten what you’ve already built?</p>
-        <div class="cta">
-          <a class="btn" href="mailto:info@amesgate.com">info@amesgate.com</a>
-          <a class="btn ghost" href="mailto:billing@amesgate.com">billing@amesgate.com</a>
-        </div>
-      </section>
+        <article class="brand-card">
+          <h4>Overly Enginerd</h4>
+          <div class="brand-domain">overlyenginerd.com · Content &amp; Tools</div>
+          <span class="brand-pill">Nerdy builds &amp; utilities</span>
+          <p>
+            A playground for overly engineered ideas, utilities, and content — the place where experiments
+            live before they grow into full AmesGate offerings.
+          </p>
+        </article>
 
-      <footer>
-        © <span id="year"></span> AmesGate. All rights reserved.
-      </footer>
-    </div>
+        <article class="brand-card">
+          <h4>Jordan Ames</h4>
+          <div class="brand-domain">jordanames.net · Personal Site</div>
+          <span class="brand-pill">Portfolio &amp; writing</span>
+          <p>
+            The personal hub for Jordan Ames — long-form writing, portfolio projects, and connective tissue
+            between all of these brands and experiments.
+          </p>
+        </article>
 
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> AmesGate. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
