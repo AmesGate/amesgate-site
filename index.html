@@ -213,6 +213,15 @@
       border:1px solid var(--border);
       background:#11161d;
       padding:18px 18px 14px;
+      display:block;
+      color:inherit;
+      text-decoration:none;
+      transition:border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .brand-card h4{
+      margin:0 0 6px;
+      font-size:1rem;
+      margin-left:4px; /* slight indent */
     }
     /* subtle themed borders */
     .brand-285live{border-color:#3fa9f5;}
@@ -228,19 +237,11 @@
     .brand-enginerd{border-color:#90caf9;}
     .brand-jordan{border-color:#c5e1a5;}
 
-    .brand-card h4{
-      margin:0 0 6px;
-      font-size:1rem;
-    }
     .brand-domain{
       font-size:.9rem;
       color:var(--muted);
       margin-bottom:6px;
       display:inline-block;
-    }
-    .brand-domain:hover{
-      color:var(--text);
-      text-decoration:underline;
     }
     .brand-pill{
       display:inline-block;
@@ -252,16 +253,24 @@
       margin-bottom:6px;
       color:var(--muted);
     }
-    .brand-pill:hover{
-      border-color:var(--accent);
-      color:var(--text);
-      text-decoration:none;
-    }
     .brand-card p{
       margin:0;
       font-size:.9rem;
       color:var(--muted);
       line-height:1.5;
+    }
+    .brand-card:hover{
+      border-color:var(--accent);
+      box-shadow:0 14px 34px rgba(0,0,0,.45);
+      transform:translateY(-1px);
+      text-decoration:none;
+    }
+    .brand-card:hover .brand-domain{
+      color:var(--text);
+    }
+    .brand-card:hover .brand-pill{
+      border-color:var(--accent);
+      color:var(--text);
     }
 
     @media (min-width:760px){
@@ -398,129 +407,129 @@
 
       <div class="brands-grid">
 
-        <article class="brand-card brand-285live">
+        <a class="brand-card brand-285live" href="https://285live.net" target="_blank" rel="noopener">
           <h4>285Live</h4>
-          <a class="brand-domain" href="https://285live.net" target="_blank" rel="noopener">285live.net · Community &amp; Connectivity</a><br />
-          <a class="brand-pill" href="https://285live.net" target="_blank" rel="noopener">Future local ISP &amp; CB network</a>
+          <span class="brand-domain">285live.net · Community &amp; Connectivity</span><br />
+          <span class="brand-pill">Future local ISP &amp; CB network</span>
           <p>
             A resilient, community-focused network for the 285 corridor — part neighborhood hub,
             part off-grid communications. Designed to keep people connected with no ads while the
             grid is up, and still useful when it’s not if you have the right gear.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-jaxroxy">
+        <a class="brand-card brand-jaxroxy" href="https://jaxandroxy.com" target="_blank" rel="noopener">
           <h4>Jax &amp; Roxy</h4>
-          <a class="brand-domain" href="https://jaxandroxy.com" target="_blank" rel="noopener">jaxandroxy.com · Dogs, Trails &amp; Care</a><br />
-          <a class="brand-pill" href="https://jaxandroxy.com" target="_blank" rel="noopener">Pet care &amp; products</a>
+          <span class="brand-domain">jaxandroxy.com · Dogs, Trails &amp; Care</span><br />
+          <span class="brand-pill">Pet care &amp; products</span>
           <p>
             Named after two adventure dogs with big medical stories, Jax &amp; Roxy offers
             thoughtfully sourced balms, treats, and trail-ready gear focused on comfort, healing,
             and getting back outside together.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-pineworks">
+        <a class="brand-card brand-pineworks" href="https://rockymountainpineworks.com" target="_blank" rel="noopener">
           <h4>Rocky Mountain Pineworks</h4>
-          <a class="brand-domain" href="https://rockymountainpineworks.com" target="_blank" rel="noopener">rockymountainpineworks.com · Builds &amp; Woodcraft</a><br />
-          <a class="brand-pill" href="https://rockymountainpineworks.com" target="_blank" rel="noopener">Workshops &amp; handmade goods</a>
+          <span class="brand-domain">rockymountainpineworks.com · Builds &amp; Woodcraft</span><br />
+          <span class="brand-pill">Workshops &amp; handmade goods</span>
           <p>
             A working homestead shop documenting real builds — from workshop and forge to outdoor
             kitchen and stonework — while turning salvaged wood and local materials into functional,
             nature-rooted pieces.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-kitchen">
+        <a class="brand-card brand-kitchen" href="https://thepineworkskitchen.com" target="_blank" rel="noopener">
           <h4>The Pineworks Kitchen</h4>
-          <a class="brand-domain" href="https://thepineworkskitchen.com" target="_blank" rel="noopener">thepineworkskitchen.com · Food &amp; Fire</a><br />
-          <a class="brand-pill" href="https://thepineworkskitchen.com" target="_blank" rel="noopener">Outdoor cooking &amp; recipes</a>
+          <span class="brand-domain">thepineworkskitchen.com · Food &amp; Fire</span><br />
+          <span class="brand-pill">Outdoor cooking &amp; recipes</span>
           <p>
             A cooking project built around the Pineworks outdoor kitchen — open fire, cast iron,
             local ingredients, and simple recipes filmed and shared from the homestead.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-resting">
+        <a class="brand-card brand-resting" href="https://therestingpine.com" target="_blank" rel="noopener">
           <h4>The Resting Pine</h4>
-          <a class="brand-domain" href="https://therestingpine.com" target="_blank" rel="noopener">therestingpine.com · Ornaments &amp; Gifts</a><br />
-          <a class="brand-pill" href="https://therestingpine.com" target="_blank" rel="noopener">Handmade decor</a>
+          <span class="brand-domain">therestingpine.com · Ornaments &amp; Gifts</span><br />
+          <span class="brand-pill">Handmade decor</span>
           <p>
             Real Colorado pine slices turned into ornaments, tags, and small gifts — a quiet, slow
             craft line built from the same trees that heat the house in winter.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-wildflower">
+        <a class="brand-card brand-wildflower" href="https://wildflowerwhims.com" target="_blank" rel="noopener">
           <h4>Wildflower Whims</h4>
-          <a class="brand-domain" href="https://wildflowerwhims.com" target="_blank" rel="noopener">wildflowerwhims.com · Nature-inspired Goods</a><br />
-          <a class="brand-pill" href="https://wildflowerwhims.com" target="_blank" rel="noopener">Whimsical products</a>
+          <span class="brand-domain">wildflowerwhims.com · Nature-inspired Goods</span><br />
+          <span class="brand-pill">Whimsical products</span>
           <p>
             Light-hearted, nature-inspired soaps, wraps, and small goods — the playful side of the
             homestead brands, built for markets, pop-ups, and gift buyers.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-getjob">
+        <a class="brand-card brand-getjob" href="https://getacooljobrealfast.work" target="_blank" rel="noopener">
           <h4>Get a Cool Job Real Fast</h4>
-          <a class="brand-domain" href="https://getacooljobrealfast.work" target="_blank" rel="noopener">getacooljobrealfast.work · Career Tools</a><br />
-          <a class="brand-pill" href="https://getacooljobrealfast.work" target="_blank" rel="noopener">Students &amp; job seekers</a>
+          <span class="brand-domain">getacooljobrealfast.work · Career Tools</span><br />
+          <span class="brand-pill">Students &amp; job seekers</span>
           <p>
             Originally built as a joke for a phishing assignment, now evolving into a straightforward
             toolkit to help students and career-changers land real jobs and internships without spammy
             tactics or clickbait.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-kernel">
+        <a class="brand-card brand-kernel" href="https://kernelcernival.com" target="_blank" rel="noopener">
           <h4>Kernel Cernival</h4>
-          <a class="brand-domain" href="https://kernelcernival.com" target="_blank" rel="noopener">kernelcernival.com · Popcorn &amp; Events</a><br />
-          <a class="brand-pill" href="https://kernelcernival.com" target="_blank" rel="noopener">Local food &amp; vendors</a>
+          <span class="brand-domain">kernelcernival.com · Popcorn &amp; Events</span><br />
+          <span class="brand-pill">Local food &amp; vendors</span>
           <p>
             A popcorn concept meant to be run with and for local partners — AmesGate focuses on the
             standards, safety, and systems so trusted vendors can bring the flavor to markets and events.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-rootchaos">
+        <a class="brand-card brand-rootchaos" href="https://rootchaos.com" target="_blank" rel="noopener">
           <h4>RootChaos &amp; RootChaos Analysis</h4>
-          <a class="brand-domain" href="https://rootchaos.com" target="_blank" rel="noopener">rootchaos.com · rootchaosanalysis.com</a><br />
-          <a class="brand-pill" href="https://rootchaos.com" target="_blank" rel="noopener">Security &amp; observability (in progress)</a>
+          <span class="brand-domain">rootchaos.com · rootchaosanalysis.com</span><br />
+          <span class="brand-pill">Security &amp; observability (in progress)</span>
           <p>
             A future home for deeper security, monitoring, and root-cause analysis work, built on top of
             the same lab rack and infrastructure projects documented through AmesGate.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-harpokrates">
+        <a class="brand-card brand-harpokrates" href="https://harpokrates.io" target="_blank" rel="noopener">
           <h4>Harpokrates</h4>
-          <a class="brand-domain" href="https://harpokrates.io" target="_blank" rel="noopener">harpokrates.io · Quiet Security</a><br />
-          <a class="brand-pill" href="https://harpokrates.io" target="_blank" rel="noopener">Security research</a>
+          <span class="brand-domain">harpokrates.io · Quiet Security</span><br />
+          <span class="brand-pill">Security research</span>
           <p>
             An experiment space for security concepts centered on silence, discretion, and disciplined
             operations — more research lab than product, for now.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-enginerd">
+        <a class="brand-card brand-enginerd" href="https://overlyenginerd.com" target="_blank" rel="noopener">
           <h4>Overly Enginerd</h4>
-          <a class="brand-domain" href="https://overlyenginerd.com" target="_blank" rel="noopener">overlyenginerd.com · Content &amp; Tools</a><br />
-          <a class="brand-pill" href="https://overlyenginerd.com" target="_blank" rel="noopener">Nerdy builds &amp; utilities</a>
+          <span class="brand-domain">overlyenginerd.com · Content &amp; Tools</span><br />
+          <span class="brand-pill">Nerdy builds &amp; utilities</span>
           <p>
             A playground for overly engineered ideas, utilities, and content — the place where experiments
             live before they grow into full AmesGate offerings.
           </p>
-        </article>
+        </a>
 
-        <article class="brand-card brand-jordan">
+        <a class="brand-card brand-jordan" href="https://jordanames.net" target="_blank" rel="noopener">
           <h4>Jordan Ames</h4>
-          <a class="brand-domain" href="https://jordanames.net" target="_blank" rel="noopener">jordanames.net · Personal Site</a><br />
-          <a class="brand-pill" href="https://jordanames.net" target="_blank" rel="noopener">Portfolio &amp; writing</a>
+          <span class="brand-domain">jordanames.net · Personal Site</span><br />
+          <span class="brand-pill">Portfolio &amp; writing</span>
           <p>
             The personal hub for Jordan Ames — long-form writing, portfolio projects, and connective tissue
             between all of these brands and experiments.
           </p>
-        </article>
+        </a>
 
       </div>
     </section>
