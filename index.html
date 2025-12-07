@@ -70,16 +70,12 @@
     .btn{
       display:inline-block; padding:10px 16px;
       border-radius:12px;
-      background:#2b3643;           /* slate-ish grey */
-      color:var(--text);
+      background:var(--accent); color:#111;
       font-weight:700;
       border:1px solid rgba(255,255,255,.08);
       box-shadow:var(--shadow);
     }
-    .btn:hover{
-      filter:brightness(1.05);
-      text-decoration:none;
-    }
+    .btn:hover{filter:brightness(.95)}
 
     /* HERO */
     .hero{
@@ -91,7 +87,7 @@
       text-align:center;
     }
     .hero h1{
-      font-size:clamp(2.0rem,3.2vw,2.7rem);  /* smaller headline */
+      font-size:clamp(2.4rem,4.2vw,3.4rem);
       margin:24px 0 12px;
       letter-spacing:.4px;
       color:var(--text);
@@ -148,6 +144,43 @@
       color:#cfd6e3;
     }
     .icon{font-weight:900; color:var(--accent)}
+
+    /* READY FOR HELP CTA */
+    .contact-cta{
+      max-width:780px;
+      margin:0 auto 40px;
+      padding:20px 18px 18px;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.35);
+      box-shadow:var(--shadow);
+    }
+    .contact-cta h2{
+      margin:0 0 8px;
+      font-size:1.3rem;
+      text-align:center;
+    }
+    .contact-cta p{
+      margin:0 0 8px;
+      color:var(--muted);
+      font-size:.98rem;
+      line-height:1.6;
+      text-align:center;
+    }
+    .contact-cta ul{
+      list-style:none;
+      padding:0;
+      margin:8px 0 4px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    .contact-cta li{
+      margin:4px 0;
+    }
+    .contact-cta strong{
+      color:var(--text);
+      font-weight:600;
+    }
 
     footer{
       margin:52px 0 20px;
@@ -331,6 +364,19 @@
         </article>
 
       </div>
+
+      <!-- READY FOR HELP CTA -->
+      <section class="contact-cta" aria-labelledby="contact-cta-title">
+        <h2 id="contact-cta-title">Ready for help?</h2>
+        <p>Here’s how working with AmesGate usually goes:</p>
+        <ul>
+          <li><strong>1. Reach out.</strong> Send a quick email to <a href="mailto:info@amesgate.com">info@amesgate.com</a> with what’s broken or what you want to improve.</li>
+          <li><strong>2. Short triage chat.</strong> We do a 15–20 minute conversation to understand your setup and what’s really going on.</li>
+          <li><strong>3. Simple written plan.</strong> You get a short, plain-English plan with options and pricing so you can decide what to do next.</li>
+        </ul>
+        <p>No pressure, no jargon — just a clear next step from “everything feels messy” to “we know what to fix first.”</p>
+      </section>
+
     </section>
 
     <!-- AmesGate family of brands -->
