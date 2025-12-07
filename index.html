@@ -70,12 +70,16 @@
     .btn{
       display:inline-block; padding:10px 16px;
       border-radius:12px;
-      background:var(--accent); color:#111;
+      background:#2b3643;           /* slate-ish grey */
+      color:var(--text);
       font-weight:700;
       border:1px solid rgba(255,255,255,.08);
       box-shadow:var(--shadow);
     }
-    .btn:hover{filter:brightness(.95)}
+    .btn:hover{
+      filter:brightness(1.05);
+      text-decoration:none;
+    }
 
     /* HERO */
     .hero{
@@ -87,7 +91,7 @@
       text-align:center;
     }
     .hero h1{
-      font-size:clamp(2.4rem,4.2vw,3.4rem);
+      font-size:clamp(2.0rem,3.2vw,2.7rem);  /* smaller headline */
       margin:24px 0 12px;
       letter-spacing:.4px;
       color:var(--text);
