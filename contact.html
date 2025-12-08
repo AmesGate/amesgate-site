@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Application Insights -->
+  <script type="text/javascript">
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src="https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("head")[0].appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["trackEvent","trackPageView","trackException","trackTrace","trackDependencyData","flush"],o=0;o<r.length;o++)n(r[o]);return t}({ connectionString:"InstrumentationKey=79a5e827-b7b9-4ef0-8346-c3719dfacf19;IngestionEndpoint:https://centralus-2.in.applicationinsights.azure.com/;LiveEndpoint:https://centralus.livediagnostics.monitor.azure.com/;ApplicationId:3aaac8e1-3ff8-4c96-97d3-a62385437651" });window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+  </script>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact AmesGate — Practical IT for Small Businesses</title>
-  <meta name="description" content="Contact AmesGate for straightforward small-business IT help — email, Wi-Fi, Microsoft 365, security, and everyday tech problems." />
+  <title>Contact AmesGate — Book a Fix</title>
+  <meta name="description" content="Tell AmesGate what’s broken, what feels messy, or what you’d like to improve. Get a simple, practical next step for your small-business IT." />
+  <meta name="theme-color" content="#0f1115" />
   <link rel="icon" href="/favicon.ico" />
+
   <style>
     :root{
       --bg:#0f1115;
       --bg2:#141821;
       --text:#e7e9ee;
       --muted:#a7b0c0;
-      --accent:#e26d5c;
+      --accent:#7ec59b;
       --card:#151a22;
       --border:#232a36;
       --radius:16px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --max:900px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
+    *{box-sizing:border-box}
     html,body{
+      margin:0;
       height:100%;
       background:
         radial-gradient(1200px 600px at 70% -20%, #1a202b 0%, var(--bg) 60%),
@@ -30,209 +38,251 @@
     }
     a{color:#79b7ff;text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 40px}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:26px 18px 40px;
+    }
 
-    /* top brand bar */
-    .brand-row{
+    /* top bar */
+    .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      margin-bottom:20px;
       gap:16px;
+      margin-bottom:26px;
     }
     .brand-link{
       display:flex;
       align-items:center;
       gap:12px;
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
     }
     .logo{
-      width:42px;height:42px;border-radius:999px;
-      background:#111;border:1px solid var(--border);
-      overflow:hidden;box-shadow:var(--shadow);
+      width:40px; height:40px; border-radius:999px;
+      background:#111;
+      border:1px solid var(--border);
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
-    .logo img{width:100%;height:100%;object-fit:cover;display:block}
-    .brand-text-title{font-weight:700;font-size:1.05rem}
-    .brand-text-tag{font-size:.9rem;color:var(--muted)}
-
+    .logo img{
+      display:block;
+      width:100%; height:100%; object-fit:cover;
+    }
+    .brand-main{font-weight:700;font-size:1.05rem;}
+    .brand-tag{font-size:.9rem;color:var(--muted);}
     .back-btn{
-      padding:10px 18px;
+      padding:8px 16px;
       border-radius:999px;
       border:1px solid #3a4554;
-      background:#2b3442;
-      color:#e7e9ee;
+      background:#222a35;
+      color:var(--text);
+      font-size:.9rem;
       font-weight:600;
       box-shadow:var(--shadow);
     }
-    .back-btn:hover{filter:brightness(1.05);text-decoration:none}
+    .back-btn:hover{filter:brightness(1.05);text-decoration:none;}
 
-    /* page heading */
-    .page-title{
-      text-align:center;
-      font-size:2rem;
-      margin:12px 0 6px;
-    }
-    .page-sub{
-      text-align:center;
+    /* headings */
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.8rem;
       color:var(--muted);
-      font-size:.98rem;
+      text-align:left;
+      margin:6px 0 4px;
+    }
+    .page-title{
+      font-size:2rem;
+      margin:0 0 8px;
+      text-align:left;
+    }
+    .page-intro{
+      margin:0 0 22px;
+      color:var(--muted);
       line-height:1.6;
+      font-size:.96rem;
       max-width:720px;
-      margin:0 auto 26px;
     }
 
-    /* card + form */
+    /* form card */
     .card{
       background:radial-gradient(circle at top, #1e2531 0, #10141b 55%);
       border-radius:var(--radius);
       border:1px solid var(--border);
       box-shadow:var(--shadow);
-      padding:26px 22px 22px;
+      padding:22px 22px 20px;
     }
-    .field-row{
+    form{
       display:flex;
-      flex-wrap:wrap;
-      gap:18px;
-      margin-bottom:18px;
+      flex-direction:column;
+      gap:16px;
     }
-    .field{
-      flex:1 1 240px;
-      min-width:0;
+    .field-group{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
     }
     label{
-      display:block;
       font-size:.9rem;
-      margin-bottom:6px;
-      color:var(--muted);
+      color:#cfd6e3;
     }
     input,textarea{
       width:100%;
-      padding:10px 11px;
       border-radius:10px;
-      border:1px solid #242b37;
-      background:#070a10;
+      border:1px solid #2c3443;
+      background:#0f141c;
+      padding:10px 11px;
       color:var(--text);
       font-size:.95rem;
       outline:none;
     }
+    input:focus,textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px rgba(126,197,155,.4);
+    }
     textarea{
-      min-height:160px;
+      min-height:140px;
       resize:vertical;
       line-height:1.5;
     }
-    input:focus,textarea:focus{
-      border-color:#4d82ff;
-      box-shadow:0 0 0 1px rgba(77,130,255,.5);
-    }
     .hint{
-      margin-top:6px;
-      font-size:.85rem;
+      font-size:.8rem;
       color:var(--muted);
     }
-    .examples{
-      margin-top:10px;
-      font-size:.85rem;
-      color:var(--muted);
+    .field-row{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
     }
 
     .submit-row{
-      margin-top:22px;
-      text-align:center;
+      margin-top:4px;
+      display:flex;
+      justify-content:flex-start;
     }
-    .submit-btn{
-      padding:11px 26px;
-      border-radius:12px;
-      border:1px solid #3a4554;
+    .primary-btn{
+      padding:10px 26px;
+      border-radius:999px;
+      border:1px solid #4b5b6d;
       background:#2b3442;
       color:var(--text);
-      font-weight:700;
+      font-weight:600;
+      font-size:.95rem;
       cursor:pointer;
-      min-width:220px;
       box-shadow:var(--shadow);
     }
-    .submit-btn:hover{filter:brightness(1.05)}
+    .primary-btn:hover{
+      filter:brightness(1.06);
+    }
 
-    .back-link{
-      margin-top:18px;
-      text-align:center;
-      font-size:.9rem;
+    .footer-note{
+      margin-top:14px;
+      font-size:.82rem;
       color:var(--muted);
     }
-    .back-link a{color:#9bc5ff}
+    .footer-link{
+      margin-top:18px;
+      text-align:center;
+      font-size:.88rem;
+      color:var(--muted);
+    }
 
-    @media (max-width:600px){
-      .page-title{font-size:1.7rem}
+    @media (min-width:720px){
+      .wrap{padding:32px 18px 56px;}
+      .page-title{font-size:2.2rem;}
+      .field-row{
+        flex-direction:row;
+      }
+      .field-row .field-group{
+        flex:1;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <div class="brand-row">
+    <div class="topbar">
       <a href="/" class="brand-link">
         <div class="logo" aria-hidden="true">
-          <img src="images/logo_small.png" alt="AmesGate logo">
+          <img src="images/logo_small.png" alt="AmesGate logo" />
         </div>
         <div>
-          <div class="brand-text-title">AmesGate</div>
-          <div class="brand-text-tag">Practical IT for Small Businesses</div>
+          <div class="brand-main">AmesGate</div>
+          <div class="brand-tag">Practical IT for Small Businesses</div>
         </div>
       </a>
       <a href="/" class="back-btn">Back to site</a>
     </div>
 
-    <h1 class="page-title">Contact AmesGate</h1>
-    <p class="page-sub">
-      Tell me what’s broken, what feels messy, or what you’d like to improve.
-      I’ll review it personally and get back to you as soon as possible with a simple next step.
+    <div class="kicker">Book a fix</div>
+    <h1 class="page-title">Tell me what needs fixing.</h1>
+    <p class="page-intro">
+      Tell me what you’ve got, what it’s doing, and how I can reach you. I’ll look it over,
+      reply personally, and give you a simple next step — usually a short triage call and a
+      plain-English plan with options.
     </p>
 
     <div class="card">
-      <!-- IMPORTANT: this is the only thing FormSubmit cares about -->
-      <form action="https://formsubmit.co/info@amesgate.com" method="POST" accept-charset="UTF-8">
-        <!-- FormSubmit options -->
-        <input type="hidden" name="_subject" value="New inquiry from AmesGate.com">
-        <input type="hidden" name="_template" value="table">
+      <form action="https://formsubmit.co/info@amesgate.com" method="POST">
+        <!-- spam honeypot -->
+        <input type="text" name="_honey" style="display:none">
+        <!-- formsubmit options -->
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New AmesGate request from website">
         <input type="hidden" name="_next" value="https://www.amesgate.com/contact.html?sent=1">
 
-        <div class="field-row">
-          <div class="field">
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" required autocomplete="name" />
-          </div>
-          <div class="field">
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" required autocomplete="email" />
-          </div>
+        <div class="field-group">
+          <label for="name">Your name</label>
+          <input id="name" name="name" required placeholder="Jordan, office manager, owner, etc." />
+        </div>
+
+        <div class="field-group">
+          <label for="business">Business or organization (optional)</label>
+          <input id="business" name="business" placeholder="Shop name, clinic, non-profit, home office, etc." />
+        </div>
+
+        <div class="field-group">
+          <label for="what">What is it?</label>
+          <input id="what" name="what"
+                 placeholder="Example: office Wi-Fi, laptops, Microsoft 365, POS, website, backups, etc." />
+        </div>
+
+        <div class="field-group">
+          <label for="details">What’s going wrong?</label>
+          <textarea id="details" name="details" required
+            placeholder="Describe the problem in normal words — what you see, when it started, who it affects, anything you’ve already tried."></textarea>
         </div>
 
         <div class="field-row">
-          <div class="field">
-            <label for="phone">Phone number (optional)</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" />
-            <div class="hint">
-              If you prefer a call or text, include the best number and time.
-            </div>
+          <div class="field-group">
+            <label for="contact">How should I contact you back?</label>
+            <input id="contact" name="contact" required
+                   placeholder="Best email or mobile number" />
+            <div class="hint">I’ll usually start with email or text unless you specifically ask for a call.</div>
           </div>
-        </div>
 
-        <div class="field">
-          <label for="message">What’s going on? What needs fixing?</label>
-          <textarea id="message" name="message" required></textarea>
-          <div class="examples">
-            Example: “Email is unreliable”, “Wi-Fi drops in half the office”,
-            “Need to clean up Microsoft 365”, etc.
+          <div class="field-group">
+            <label for="timing">Anything I should know about timing? (optional)</label>
+            <input id="timing" name="timing"
+                   placeholder="Best time of day, urgent/not urgent, days to avoid, etc." />
           </div>
         </div>
 
         <div class="submit-row">
-          <button type="submit" class="submit-btn">Send to AmesGate</button>
+          <button type="submit" class="primary-btn">Send request</button>
+        </div>
+
+        <div class="footer-note">
+          After this form is sent, you can reply to my email with screenshots or photos if that helps me see
+          what’s going on.
         </div>
       </form>
     </div>
 
-    <div class="back-link">
+    <div class="footer-link">
       or <a href="/">return to the main site</a>
     </div>
   </div>
