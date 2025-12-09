@@ -8,6 +8,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- IMPORTANT FIX: allow referer to be passed -->
+  <meta name="referrer" content="origin">
+
   <title>Contact AmesGate — Book a Fix</title>
   <meta name="description" content="Tell AmesGate what’s broken, what feels messy, or what you’d like to improve. Get a simple, practical next step for your small-business IT." />
   <meta name="theme-color" content="#0f1115" />
@@ -44,7 +48,6 @@
       padding:26px 18px 40px;
     }
 
-    /* top bar */
     .topbar{
       display:flex;
       align-items:center;
@@ -84,19 +87,16 @@
     }
     .back-btn:hover{filter:brightness(1.05);text-decoration:none;}
 
-    /* headings */
     .kicker{
       text-transform:uppercase;
       letter-spacing:.16em;
       font-size:.8rem;
       color:var(--muted);
-      text-align:left;
       margin:6px 0 4px;
     }
     .page-title{
       font-size:2rem;
       margin:0 0 8px;
-      text-align:left;
     }
     .page-intro{
       margin:0 0 22px;
@@ -106,7 +106,6 @@
       max-width:720px;
     }
 
-    /* form card */
     .card{
       background:radial-gradient(circle at top, #1e2531 0, #10141b 55%);
       border-radius:var(--radius);
@@ -119,15 +118,8 @@
       flex-direction:column;
       gap:16px;
     }
-    .field-group{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    label{
-      font-size:.9rem;
-      color:#cfd6e3;
-    }
+    .field-group{display:flex;flex-direction:column;gap:6px;}
+    label{font-size:.9rem;color:#cfd6e3;}
     input,textarea{
       width:100%;
       border-radius:10px;
@@ -136,32 +128,20 @@
       padding:10px 11px;
       color:var(--text);
       font-size:.95rem;
-      outline:none;
     }
-    input:focus,textarea:focus{
-      border-color:var(--accent);
-      box-shadow:0 0 0 1px rgba(126,197,155,.4);
-    }
-    textarea{
-      min-height:140px;
-      resize:vertical;
-      line-height:1.5;
-    }
-    .hint{
-      font-size:.8rem;
-      color:var(--muted);
-    }
+    textarea{min-height:140px;resize:vertical;line-height:1.5;}
+
     .field-row{
       display:flex;
       flex-direction:column;
       gap:16px;
     }
-
-    .submit-row{
-      margin-top:4px;
-      display:flex;
-      justify-content:flex-start;
+    @media (min-width:720px){
+      .field-row{flex-direction:row;}
+      .field-row .field-group{flex:1;}
     }
+
+    .submit-row{margin-top:4px;display:flex;justify-content:flex-start;}
     .primary-btn{
       padding:10px 26px;
       border-radius:999px;
@@ -172,32 +152,6 @@
       font-size:.95rem;
       cursor:pointer;
       box-shadow:var(--shadow);
-    }
-    .primary-btn:hover{
-      filter:brightness(1.06);
-    }
-
-    .footer-note{
-      margin-top:14px;
-      font-size:.82rem;
-      color:var(--muted);
-    }
-    .footer-link{
-      margin-top:18px;
-      text-align:center;
-      font-size:.88rem;
-      color:var(--muted);
-    }
-
-    @media (min-width:720px){
-      .wrap{padding:32px 18px 56px;}
-      .page-title{font-size:2.2rem;}
-      .field-row{
-        flex-direction:row;
-      }
-      .field-row .field-group{
-        flex:1;
-      }
     }
   </style>
 </head>
@@ -221,15 +175,19 @@
     <h1 class="page-title">Tell me what needs fixing.</h1>
     <p class="page-intro">
       Tell me what you’ve got, what it’s doing, and how I can reach you. I’ll look it over,
-      reply personally, and give you a simple next step — usually a short triage call and a
-      plain-English plan with options.
+      reply personally, and give you a simple next step.
     </p>
 
     <div class="card">
       <form action="https://formsubmit.co/info@amesgate.com" method="POST">
+        
+        <!-- REQUIRED FIX: tell FormSubmit your real page URL -->
+        <input type="hidden" name="_url" value="https://www.amesgate.com/contact.html">
+
         <!-- spam honeypot -->
         <input type="text" name="_honey" style="display:none">
-        <!-- formsubmit options -->
+
+        <!-- formsubmit settings -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_subject" value="New AmesGate request from website">
         <input type="hidden" name="_next" value="https://www.amesgate.com/contact.html?sent=1">
@@ -241,33 +199,28 @@
 
         <div class="field-group">
           <label for="business">Business or organization (optional)</label>
-          <input id="business" name="business" placeholder="Shop name, clinic, non-profit, home office, etc." />
+          <input id="business" name="business" placeholder="Shop name, clinic, non-profit, etc." />
         </div>
 
         <div class="field-group">
           <label for="what">What is it?</label>
-          <input id="what" name="what"
-                 placeholder="Example: office Wi-Fi, laptops, Microsoft 365, POS, website, backups, etc." />
+          <input id="what" name="what" placeholder="Wi-Fi, laptops, Microsoft 365, website, backups, etc." />
         </div>
 
         <div class="field-group">
           <label for="details">What’s going wrong?</label>
-          <textarea id="details" name="details" required
-            placeholder="Describe the problem in normal words — what you see, when it started, who it affects, anything you’ve already tried."></textarea>
+          <textarea id="details" name="details" required placeholder="Describe the problem in normal words..."></textarea>
         </div>
 
         <div class="field-row">
           <div class="field-group">
             <label for="contact">How should I contact you back?</label>
-            <input id="contact" name="contact" required
-                   placeholder="Best email or mobile number" />
-            <div class="hint">I’ll usually start with email or text unless you specifically ask for a call.</div>
+            <input id="contact" name="contact" required placeholder="Best email or mobile number" />
           </div>
 
           <div class="field-group">
-            <label for="timing">Anything I should know about timing? (optional)</label>
-            <input id="timing" name="timing"
-                   placeholder="Best time of day, urgent/not urgent, days to avoid, etc." />
+            <label for="timing">Anything about timing? (optional)</label>
+            <input id="timing" name="timing" placeholder="Urgent? Best times? Days to avoid?" />
           </div>
         </div>
 
@@ -275,10 +228,6 @@
           <button type="submit" class="primary-btn">Send request</button>
         </div>
 
-        <div class="footer-note">
-          After this form is sent, you can reply to my email with screenshots or photos if that helps me see
-          what’s going on.
-        </div>
       </form>
     </div>
 
