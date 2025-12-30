@@ -166,3 +166,36 @@ footer{
   .split .card.left{grid-column:span 6}
   .split .card.right{grid-column:span 6}
 }
+/* Card hierarchy */
+.card.primary {
+  border-color: var(--accent);
+  box-shadow: 0 18px 40px rgba(226,109,92,.35);
+  position: relative;
+}
+
+.card.primary::before {
+  content: "Most clients start here";
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: var(--accent);
+  color: #0f1115;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.card.secondary {
+  border-color: #4b5d7a;
+}
+
+.card.clickable {
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 46px rgba(0,0,0,.5);
+}
