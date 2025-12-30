@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AmesGate (Preview) — Pricing</title>
+  <meta name="description" content="Simple, transparent pricing: support tiers plus a menu for projects and add-ons." />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/future/assets/site.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/future/" aria-label="AmesGate preview home">
+        <div class="logo" aria-hidden="true">
+          <img src="/images/logo_small.png" alt="AmesGate logo" />
+        </div>
+        <div>
+          <div class="name">AmesGate <span class="kicker">Preview</span></div>
+          <div class="tag">Practical IT for Small Businesses</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/">Back to current site</a>
+        <a href="/future/what-we-do.html">What we do</a>
+        <a href="/future/how-we-do-it.html">How we do it</a>
+        <a href="/future/pricing.html">Pricing</a>
+        <a href="/future/why-amesgate.html">Why AmesGate</a>
+        <a class="btn" href="/future/get-help-now.html">Get help</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="pricing-title">
+      <div class="hero-inner">
+        <span class="kicker">No mystery invoices</span>
+        <h1 id="pricing-title">Pricing</h1>
+        <p>
+          You’ll always know what you’re paying for. These are starting points.
+          After triage, you get a written plan with the real number.
+        </p>
+      </div>
+    </section>
+
+    <section aria-label="Plans">
+      <h2 class="section-title">Support tiers</h2>
+      <p class="section-subtitle">
+        Use these as a baseline. Most small teams land in the middle tier once things are organized.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Starter</h3>
+          <p>Best for: small teams that mainly need cleanup + occasional support.</p>
+          <p class="hint"><strong>Includes:</strong> baseline checks, light documentation, support hours.</p>
+          <p class="hint"><strong>Typical:</strong> month-to-month, simple scope.</p>
+          <p class="hint"><strong>Price:</strong> <em>Set after triage</em></p>
+        </article>
+
+        <article class="card">
+          <h3>Core</h3>
+          <p>Best for: teams that want stability — patching, monitoring, backups, and clean M365 basics.</p>
+          <p class="hint"><strong>Includes:</strong> patching cadence, monitoring, backup verification, admin hygiene.</p>
+          <p class="hint"><strong>Typical:</strong> “we want this maintained, not hero-mode.”</p>
+          <p class="hint"><strong>Price:</strong> <em>Set after triage</em></p>
+        </article>
+
+        <article class="card">
+          <h3>Secure</h3>
+          <p>Best for: teams handling sensitive data or that want security tightened without chaos.</p>
+          <p class="hint"><strong>Includes:</strong> conditional access, device controls, security baselines, audits.</p>
+          <p class="hint"><strong>Typical:</strong> higher standards + regular reviews.</p>
+          <p class="hint"><strong>Price:</strong> <em>Set after triage</em></p>
+        </article>
+
+        <article class="card">
+          <h3>Projects / One-time work</h3>
+          <p>Best for: migrations, cleanups, network fixes, Intune rollouts, vendor quote reviews.</p>
+          <p class="hint"><strong>Billing:</strong> fixed quote or hourly depending on scope.</p>
+          <p class="hint"><strong>Output:</strong> a short plan + “done” deliverable + notes.</p>
+          <p class="hint"><strong>Price:</strong> <em>Quoted</em></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Menu pricing">
+      <h2 class="section-title">Menu (common items)</h2>
+      <p class="section-subtitle">
+        This is here to reduce anxiety. Real quotes come after triage.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Microsoft 365 cleanup</h3>
+          <p>Identity, admin roles, MFA baseline, mailbox sanity, “stop the chaos.”</p>
+          <p class="hint"><strong>Typical range:</strong> depends on tenant size + mess level.</p>
+        </article>
+
+        <article class="card">
+          <h3>Wi-Fi / network stabilization</h3>
+          <p>Dead zones, dropouts, cabling cleanup, gear right-sized, documented.</p>
+          <p class="hint"><strong>Typical range:</strong> depends on square footage + equipment.</p>
+        </article>
+
+        <article class="card">
+          <h3>Backup setup + verification</h3>
+          <p>Local + cloud options, restore testing, and a simple “what to do” checklist.</p>
+          <p class="hint"><strong>Typical range:</strong> depends on data size + RPO/RTO.</p>
+        </article>
+
+        <article class="card">
+          <h3>Security baseline hardening</h3>
+          <p>Minimum viable security that doesn’t break workflows.</p>
+          <p class="hint"><strong>Typical range:</strong> depends on users/devices + compliance needs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-strip" aria-label="Estimator">
+      <div class="contact-card">
+        <h3>Quick estimator (rough)</h3>
+        <p>This is not a contract. It’s just a sanity-check to set expectations.</p>
+
+        <div style="max-width:860px;margin:0 auto;text-align:left;color:var(--muted);">
+          <label><strong>How many users?</strong></label><br/>
+          <select id="users" style="width:100%;padding:10px;border-radius:12px;border:1px solid var(--border);background:#11161d;color:var(--text);margin:6px 0 12px;">
+            <option value="1-5">1–5</option>
+            <option value="6-15">6–15</option>
+            <option value="16-30">16–30</option>
+            <option value="31+">31+</option>
+          </select>
+
+          <label><strong>What’s the main need?</strong></label><br/>
+          <select id="need" style="width:100%;padding:10px;border-radius:12px;border:1px solid var(--border);background:#11161d;color:var(--text);margin:6px 0 12px;">
+            <option value="stability">Stability / managed support</option>
+            <option value="m365">Microsoft 365 cleanup / Intune</option>
+            <option value="network">Network / Wi-Fi issues</option>
+            <option value="security">Security hardening</option>
+            <option value="project">One-time project</option>
+          </select>
+
+          <label><strong>How urgent?</strong></label><br/>
+          <select id="urgency" style="width:100%;padding:10px;border-radius:12px;border:1px solid var(--border);background:#11161d;color:var(--text);margin:6px 0 12px;">
+            <option value="today">Today / urgent</option>
+            <option value="week">This week</option>
+            <option value="month">This month</option>
+            <option value="whenever">Whenever</option>
+          </select>
+
+          <button class="btn btn-primary" id="calc" type="button">Estimate →</button>
+
+          <div id="result" style="margin-top:12px;color:var(--text);"></div>
+          <p style="margin-top:10px;color:var(--muted);font-size:.95rem;">
+            Actual price depends on scope. Triage gives you the real number in writing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> AmesGate (Preview). All rights reserved.
+    </footer>
+  </div>
+
+  <script src="/future/assets/site.js"></script>
+  <script>
+    (function(){
+      const calc = document.getElementById('calc');
+      const result = document.getElementById('result');
+
+      function estimate(users, need, urgency){
+        // intentionally rough ranges; you’ll tune real numbers later.
+        const userFactor = { "1-5": 1, "6-15": 2, "16-30": 3, "31+": 4 }[users] || 2;
+        const needFactor = { stability: 2, m365: 2.5, network: 2.25, security: 3, project: 2 }[need] || 2;
+        const urgencyFactor = { today: 1.5, week: 1.25, month: 1.0, whenever: 0.9 }[urgency] || 1.0;
+
+        const low = Math.round(250 * userFactor * needFactor * urgencyFactor);
+        const high = Math.round(550 * userFactor * needFactor * urgencyFactor);
+
+        return { low, high };
+      }
+
+      calc.addEventListener('click', function(){
+        const users = document.getElementById('users').value;
+        const need = document.getElementById('need').value;
+        const urgency = document.getElementById('urgency').value;
+        const r = estimate(users, need, urgency);
+
+        result.innerHTML =
+          "<strong>Rough range:</strong> $" + r.low.toLocaleString() + " – $" + r.high.toLocaleString() +
+          "<br/><span style='color:var(--muted)'>Next step: email <a href=\"/contact.html\">info@amesgate.com</a> and we’ll triage + quote it cleanly.</span>";
+      });
+    })();
+  </script>
+</body>
+</html>
