@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AmesGate — Distributed Intelligence Systems</title>
+  <meta name="description" content="AmesGate helps small businesses get their technology under control — email, domains, Wi-Fi, devices, backups, and everyday IT problems handled without corporate nonsense." />
+  <meta property="og:title" content="AmesGate" />
+  <meta property="og:description" content="Practical IT for small businesses. Gold-standard infrastructure, zero corporate nonsense." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.amesgate.com/" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:    #0A0A0A;
+      --dark:     #111111;
+      --card:     #161616;
+      --card2:    #1a1a1a;
+      --gold:     #C9A84C;
+      --gold-lt:  #E8C96D;
+      --gold-dk:  #8B6914;
+      --red:      #CC2222;
+      --red-lt:   #FF4444;
+      --blue:     #4AABFF;
+      --blue-dk:  #1A6FBF;
+      --white:    #E8E8E8;
+      --muted:    #AAAAAA;
+      --dim:      #555555;
+      --border:   #2A2A2A;
+      --border2:  #333333;
+      --mono:     'Share Tech Mono', monospace;
+      --display:  'Rajdhani', sans-serif;
+      --body:     'Exo 2', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── PCB BACKGROUND CANVAS ─────────────────────────── */
+    #pcb-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+
+    .site-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── NAV ───────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-hex {
+      width: 42px;
+      height: 48px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .logo-hex svg { width: 100%; height: 100%; }
+
+    .brand-text .name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .brand-text .tagline {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--dim);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .btn-contact {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black) !important;
+      background: var(--gold);
+      padding: 8px 18px;
+      border: none;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      text-decoration: none !important;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-contact:hover {
+      background: var(--gold-lt) !important;
+    }
+
+    /* ── HERO ──────────────────────────────────────────── */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--red);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 .line-gold { color: var(--gold); }
+    .hero h1 .line-dim  { color: var(--muted); font-weight: 400; }
+
+    .hero-rule {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 24px 0;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 14px 28px;
+      text-decoration: none;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--gold-lt); }
+
+    .btn-secondary {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border2);
+      padding: 13px 28px;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid var(--border2);
+      box-shadow: 0 0 60px rgba(201,168,76,0.15), 0 0 120px rgba(201,168,76,0.05);
+      display: block;
+    }
+
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid var(--gold);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    /* Corner marks on hero image */
+    .corner { position: absolute; width: 16px; height: 16px; }
+    .corner-tl { top: -6px; left: -6px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+    .corner-tr { top: -6px; right: -6px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+    .corner-bl { bottom: -6px; left: -6px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+    .corner-br { bottom: -6px; right: -6px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 32px;
+    }
+
+    .stat {
+      background: var(--dark);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--dim);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION SHARED ─────────────────────────────────── */
+    .section {
+      padding: 80px 40px;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--gold);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background: var(--gold-dk);
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: 1px;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 620px;
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+
+    /* ── SERVICES GRID ──────────────────────────────────── */
+    #services { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 28px;
+      position: relative;
+      transition: background 0.2s;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .service-card:hover { background: var(--card2); }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--red);
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-icon::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 6px var(--red);
+      flex-shrink: 0;
+    }
+
+    .service-card h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .service-hint {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--blue);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      line-height: 1.6;
+    }
+
+    .service-hint strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* ── HOW IT WORKS ────────────────────────────────────── */
+    #how { background: var(--black); }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .how-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+      position: relative;
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+    }
+
+    .step-num {
+      font-family: var(--display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--border2);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .how-step h3 {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .how-step p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .how-step a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .how-step a:hover { color: var(--gold); }
+
+    /* ── DOMAINS ──────────────────────────────────────────── */
+    #domains { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .domains-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .domain-card {
+      background: var(--card);
+      padding: 22px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .domain-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+      transform-origin: left;
+    }
+
+    .domain-card:hover { background: var(--card2); }
+    .domain-card:hover::after { transform: scaleX(1); }
+
+    .domain-num {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--dim);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .domain-icon {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .domain-name {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .domain-desc {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--dim);
+      line-height: 1.6;
+    }
+
+    /* ── BRANDS ────────────────────────────────────────────── */
+    #brands { background: var(--black); }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .brand-card {
+      background: var(--card);
+      padding: 22px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.15s;
+      position: relative;
+      border-left: 3px solid transparent;
+    }
+
+    .brand-card:hover {
+      background: var(--card2);
+    }
+
+    .brand-card h4 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-domain-tag {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      color: var(--dim);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .brand-pill {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--dim);
+      border: 1px solid var(--border2);
+      padding: 2px 7px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .brand-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Brand accent colors */
+    .bc-blue   { border-left-color: #3fa9f5; }
+    .bc-amber  { border-left-color: #f6a623; }
+    .bc-green  { border-left-color: #8bc34a; }
+    .bc-orange { border-left-color: #ff7043; }
+    .bc-violet { border-left-color: #b39ddb; }
+    .bc-pink   { border-left-color: #ffb6c1; }
+    .bc-teal   { border-left-color: #4dd0e1; }
+    .bc-yellow { border-left-color: #ffd54f; }
+    .bc-red    { border-left-color: #ff5252; }
+    .bc-mint   { border-left-color: #80cbc4; }
+    .bc-sky    { border-left-color: #90caf9; }
+    .bc-lime   { border-left-color: #c5e1a5; }
+
+    .brand-card:hover h4 {
+      color: var(--gold);
+    }
+
+    /* ── CONTACT STRIP ──────────────────────────────────── */
+    .contact-section {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 40px;
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner h2 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .contact-inner > p {
+      color: var(--muted);
+      margin-bottom: 36px;
+      font-size: 1rem;
+    }
+
+    .contact-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 36px;
+      text-align: left;
+    }
+
+    .contact-step {
+      background: var(--card);
+      padding: 20px;
+    }
+
+    .contact-step-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--red);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .contact-step p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .contact-step strong {
+      color: var(--white);
+      font-family: var(--display);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .contact-step a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    /* ── PREVIEW STRIP ──────────────────────────────────── */
+    .preview-strip {
+      background: var(--black);
+      padding: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .preview-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .preview-inner h3 {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .preview-inner p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 3px;
+    }
+
+    .footer-meta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--dim);
+      letter-spacing: 1.5px;
+      text-align: right;
+    }
+
+    .footer-node {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .red-node {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 8px var(--red);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--red); }
+      50% { opacity: 0.6; box-shadow: 0 0 16px var(--red); }
+    }
+
+    /* ── HERO ENTRANCE ANIMATIONS ────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up:nth-child(1) { animation-delay: 0.1s; }
+    .fade-up:nth-child(2) { animation-delay: 0.25s; }
+    .fade-up:nth-child(3) { animation-delay: 0.4s; }
+    .fade-up:nth-child(4) { animation-delay: 0.5s; }
+    .fade-up:nth-child(5) { animation-delay: 0.6s; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 60px 20px; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-image { order: -1; max-width: 340px; margin: 0 auto; }
+
+      .section { padding: 60px 20px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      .domains-grid { grid-template-columns: repeat(2, 1fr); }
+      .brands-grid { grid-template-columns: 1fr; }
+      .contact-steps { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-meta { text-align: center; }
+
+      .preview-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PCB Background Canvas -->
+<canvas id="pcb-bg"></canvas>
+
+<div class="site-wrap">
+
+  <!-- ── NAV ──────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a class="brand-logo" href="/">
+        <div class="logo-hex">
+          <svg viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 2L39 12V36L21 46L3 36V12L21 2Z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+            <path d="M21 8L33 15V29L21 36L9 29V15L21 8Z" stroke="#C9A84C" stroke-width="0.5" fill="#111111" opacity="0.8"/>
+            <path d="M15 18L21 15L27 18V26L21 29L15 26V18Z" fill="#C9A84C" opacity="0.9"/>
+            <circle cx="21" cy="22" r="3" fill="#CC2222"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="name">AmesGate</div>
+          <div class="tagline">distributed · intelligent · systems</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#domains">Domains</a>
+        <a href="#brands">Brands</a>
+        <a href="#contact">Contact</a>
+        <a class="btn-contact" href="/contact.html">Get Help</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-up">AMESGATE · EST. COLORADO</div>
+        <h1 class="fade-up">
+          <span class="line-gold">Modern, reliable</span><br>
+          <span>tech for small</span><br>
+          <span class="line-dim">businesses.</span>
+        </h1>
+        <div class="hero-rule fade-up"></div>
+        <p class="fade-up">
+          We help local teams get their technology under control — email, devices, Wi-Fi, websites, security, and backups. No gimmicks. Just clear, practical small-business IT from someone who actually builds and fixes this in the real world.
+        </p>
+        <div class="hero-actions fade-up">
+          <a href="#contact" class="btn-primary">Get Help Now</a>
+          <a href="#services" class="btn-secondary">See What We Do</a>
+        </div>
+        <div class="hero-stats fade-up">
+          <div class="stat">
+            <div class="stat-val">8</div>
+            <div class="stat-label">IT Domains</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">12+</div>
+            <div class="stat-label">Brands</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">CO</div>
+            <div class="stat-label">Based Local</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image fade-up">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <img src="images/cover.jpg" alt="AmesGate — distributed intelligence notebook cover" onerror="this.style.display='none'; this.parentElement.style.background='#161616';" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ──────────────────────────────── -->
+  <section id="services" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">DOMAIN · SERVICES</div>
+        <h2 class="section-title">What we do for small businesses</h2>
+        <p class="section-sub">No retainers, no mystery fees. Clear, practical help with the tech that keeps your business running.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">01 · SETUP &amp; REPAIR</div>
+          <h3>Technology Setup &amp; Fix-It</h3>
+          <p>Set up or repair domains, email, devices, and accounts so your business actually runs smoothly.</p>
+          <div class="service-hint"><strong>Common requests</strong> Fix email · Set up Microsoft 365 · Solve sign-in issues · Straighten out user accounts</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">02 · NETWORK</div>
+          <h3>Office Networking &amp; Wi-Fi</h3>
+          <p>Wi-Fi that reaches everywhere, stable internet, and clean network setups without the chaos.</p>
+          <div class="service-hint"><strong>Common requests</strong> Remove dead zones · Fix dropouts · Upgrade routers · Organize cables</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">03 · SECURITY</div>
+          <h3>Security, Backups &amp; Peace of Mind</h3>
+          <p>Practical protection: secure devices, MFA, safe document sharing, and backups you can count on.</p>
+          <div class="service-hint"><strong>Common requests</strong> Protect data · Enable MFA · Secure laptops · Set up reliable backups</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">04 · IDENTITY</div>
+          <h3>Email, Websites &amp; Pro Identity</h3>
+          <p>Make your business look legitimate with proper domains, email, and website help.</p>
+          <div class="service-hint"><strong>Common requests</strong> Move off personal Gmail · Repair DNS · Business email setup · Fix website issues</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">05 · EMERGENCY</div>
+          <h3>Emergency Support &amp; Troubleshooting</h3>
+          <p>Fast help when something breaks — remote or on-site depending on location.</p>
+          <div class="service-hint"><strong>Common requests</strong> Everything stopped working · Password lockouts · Broken apps · POS failures</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">06 · PLANNING</div>
+          <h3>Tech Planning &amp; Second Opinions</h3>
+          <p>Clear answers without sales pressure: hardware recommendations, vendor quote reviews, upgrade plans.</p>
+          <div class="service-hint"><strong>Common requests</strong> "Are we set up correctly?" · "Is this quote legit?" · "What should we upgrade first?"</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ───────────────────────────── -->
+  <section id="contact" class="contact-section">
+    <div class="contact-inner">
+      <div class="section-eyebrow" style="justify-content:center; margin-bottom:12px;">PROTOCOL · ENGAGEMENT</div>
+      <h2>Ready for help?</h2>
+      <p>Here's how working with AmesGate usually goes:</p>
+      <div class="contact-steps">
+        <div class="contact-step">
+          <div class="contact-step-num">STEP · 01</div>
+          <strong>Reach out.</strong>
+          <p>Send a quick email to <a href="/contact.html">info@amesgate.com</a> with what's broken or what you want to improve.</p>
+        </div>
+        <div class="contact-step">
+          <div class="contact-step-num">STEP · 02</div>
+          <strong>Short triage chat.</strong>
+          <p>We do a 15–20 minute conversation to understand your setup and what's really going on.</p>
+        </div>
+        <div class="contact-step">
+          <div class="contact-step-num">STEP · 03</div>
+          <strong>Simple written plan.</strong>
+          <p>You get a short, plain-English plan with options and pricing so you can decide what to do next.</p>
+        </div>
+      </div>
+      <p style="color: var(--muted); font-size:0.95rem; margin-bottom:28px;">No pressure, no jargon — just a clear next step from "everything feels messy" to "we know what to fix first."</p>
+      <a href="/contact.html" class="btn-primary">Contact AmesGate →</a>
+    </div>
+  </section>
+
+  <!-- ── 8 DOMAINS ─────────────────────────────── -->
+  <section id="domains" class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">ARCHITECTURE · 8 DOMAINS</div>
+        <h2 class="section-title">The AmesGate Organism</h2>
+        <p class="section-sub">One central brain. Eight autonomous arms. Each domain operates independently — all coordinated from the core.</p>
+      </div>
+      <div class="domains-grid">
+        <div class="domain-card"><div class="domain-num">DOMAIN · 01</div><span class="domain-icon">▣</span><div class="domain-name">Infrastructure</div><div class="domain-desc">Servers · Hypervisors · Network · Racks</div></div>
+        <div class="domain-card"><div class="domain-num">DOMAIN · 02</div><span class="domain-icon">◈</span><div class="domain-name">Cloud</div><div class="domain-desc">Azure · GCP · Storage · Serverless</div></div>
+        <div class="domain-card"><div class="domain-num">DOMAIN · 03</div><span class="domain-icon">⚙</span><div class="domain-name">Automation</div><div class="domain-desc">Scripts · Cron · Agents · Workflows</div></div>
+        <div class="domain-card"><div class="domain-num">DOMAIN · 04</div><span class="domain-icon">◉</span><div class="domain-name">Monitoring</div><div class="domain-desc">Observability · Metrics · Logging · Alerts</div></div>
+        <div class="domain-card"><div class="domain-num">DOMAIN · 05</div><span class="domain-icon">⛨</span><div class="domain-name">Security</div><div class="domain-desc">Identity · Access · Incident · Audit</div></div>
+        <div class="domain-card"><div class="domain-num">DOMAIN · 06</div><span class="domain-icon">▦</span><div class="domain-name">Data</div><div class="domain-desc">Databases · Analytics · ETL · Reporting</div></div>
+        <div class="domain-card"><div class="domain-num">DOMAIN · 07</div><span class="domain-icon">◫</span><div class="domain-name">Clients</div><div class="domain-desc">Client Infra · Deployments · Integrations</div></div>
+        <div class="domain-card"><div class="domain-num">DOMAIN · 08</div><span class="domain-icon">✦</span><div class="domain-name">AI / Agents</div><div class="domain-desc">AI Tools · Agents · Decision Systems</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAMILY OF BRANDS ──────────────────────── -->
+  <section id="brands" class="section" style="background: var(--dark); border-top: 1px solid var(--border);">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">NETWORK · BRANDS</div>
+        <h2 class="section-title">AmesGate Family of Brands</h2>
+        <p class="section-sub">AmesGate powers a focused set of projects — from homestead builds and handmade goods to security research, creative tech, and future-ready communications.</p>
+      </div>
+      <div class="brands-grid">
+
+        <a class="brand-card bc-violet" href="https://therestingpine.com" target="_blank" rel="noopener">
+          <h4>The Resting Pine</h4>
+          <span class="brand-domain-tag">therestingpine.com</span>
+          <span class="brand-pill">Ornaments &amp; Gifts</span>
+          <p>Real Colorado pine slices turned into ornaments, tags, and small gifts — a quiet, slow craft line built from the same trees that heat the house in winter.</p>
+        </a>
+
+        <a class="brand-card bc-teal" href="https://www.getacooljobreallyfast.work" target="_blank" rel="noopener">
+          <h4>Get a Cool Job Real Fast</h4>
+          <span class="brand-domain-tag">getacooljobreallyfast.work</span>
+          <span class="brand-pill">Career Tools</span>
+          <p>Originally built as a joke for a phishing assignment, now evolving into a straightforward toolkit to help students and career-changers land real jobs without spammy tactics.</p>
+        </a>
+
+        <a class="brand-card bc-pink" href="https://wildflowerwhims.com" target="_blank" rel="noopener">
+          <h4>Wildflower Whims</h4>
+          <span class="brand-domain-tag">wildflowerwhims.com</span>
+          <span class="brand-pill">Nature-inspired Goods</span>
+          <p>Light-hearted, nature-inspired soaps, wraps, and small goods — the playful side of the homestead brands, built for markets, pop-ups, and gift buyers.</p>
+        </a>
+
+        <a class="brand-card bc-green" href="https://rockymountainpineworks.com" target="_blank" rel="noopener">
+          <h4>Rocky Mountain Pineworks</h4>
+          <span class="brand-domain-tag">rockymountainpineworks.com</span>
+          <span class="brand-pill">Builds &amp; Woodcraft</span>
+          <p>A working homestead shop documenting real builds — from workshop and forge to outdoor kitchen and stonework — using salvaged wood and local materials.</p>
+        </a>
+
+        <a class="brand-card bc-orange" href="https://thepineworkskitchen.com" target="_blank" rel="noopener">
+          <h4>The Pineworks Kitchen</h4>
+          <span class="brand-domain-tag">thepineworkskitchen.com</span>
+          <span class="brand-pill">Food &amp; Fire</span>
+          <p>A cooking project built around the Pineworks outdoor kitchen — open fire, cast iron, local ingredients, and simple recipes filmed from the homestead.</p>
+        </a>
+
+        <a class="brand-card bc-amber" href="https://jaxandroxy.com" target="_blank" rel="noopener">
+          <h4>Jax &amp; Roxy</h4>
+          <span class="brand-domain-tag">jaxandroxy.com</span>
+          <span class="brand-pill">Dogs, Trails &amp; Care</span>
+          <p>Named after two adventure dogs with big medical stories — thoughtfully sourced balms, treats, and trail-ready gear focused on comfort, healing, and getting back outside.</p>
+        </a>
+
+        <a class="brand-card bc-yellow" href="https://kernelcernival.com" target="_blank" rel="noopener">
+          <h4>Kernel Cernival</h4>
+          <span class="brand-domain-tag">kernelcernival.com</span>
+          <span class="brand-pill">Popcorn &amp; Events</span>
+          <p>A popcorn concept built for and with local partners — AmesGate handles the standards, safety, and systems so vendors can bring the flavor to markets and events.</p>
+        </a>
+
+        <a class="brand-card bc-red" href="https://rootchaos.com" target="_blank" rel="noopener">
+          <h4>RootChaos &amp; RootChaos Analysis</h4>
+          <span class="brand-domain-tag">rootchaos.com · rootchaosanalysis.com</span>
+          <span class="brand-pill">Security &amp; Observability</span>
+          <p>A future home for deeper security, monitoring, and root-cause analysis work, built on the same lab rack and infrastructure projects documented through AmesGate.</p>
+        </a>
+
+        <a class="brand-card bc-mint" href="https://harpokrates.io" target="_blank" rel="noopener">
+          <h4>Harpokrates</h4>
+          <span class="brand-domain-tag">harpokrates.io</span>
+          <span class="brand-pill">Quiet Security</span>
+          <p>An experiment space for security concepts centered on silence, discretion, and disciplined operations — more research lab than product, for now.</p>
+        </a>
+
+        <a class="brand-card bc-sky" href="https://overlyenginerd.com" target="_blank" rel="noopener">
+          <h4>Overly Enginerd</h4>
+          <span class="brand-domain-tag">overlyenginerd.com</span>
+          <span class="brand-pill">Nerdy Builds &amp; Utilities</span>
+          <p>A playground for overly engineered ideas, utilities, and content — the place where experiments live before they grow into full AmesGate offerings.</p>
+        </a>
+
+        <a class="brand-card bc-lime" href="https://jordanames.net" target="_blank" rel="noopener">
+          <h4>Jordan Ames</h4>
+          <span class="brand-domain-tag">jordanames.net</span>
+          <span class="brand-pill">Portfolio &amp; Writing</span>
+          <p>The personal hub for Jordan Ames — long-form writing, portfolio projects, and connective tissue between all of these brands and experiments.</p>
+        </a>
+
+        <a class="brand-card bc-blue" href="https://285live.net" target="_blank" rel="noopener">
+          <h4>285Live</h4>
+          <span class="brand-domain-tag">285live.net</span>
+          <span class="brand-pill">Community &amp; Connectivity</span>
+          <p>A resilient, community-focused network for the 285 corridor — part neighborhood hub, part off-grid communications. Designed to keep people connected with no ads.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PREVIEW STRIP ──────────────────────────── -->
+  <div class="preview-strip">
+    <div class="preview-inner">
+      <div>
+        <h3>Want to see what's coming?</h3>
+        <p>Preview the upgraded AmesGate site before we switch anything over.</p>
+      </div>
+      <a href="/future/" class="btn-secondary">Preview new site →</a>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">AMESGATE</div>
+        <div style="font-family: var(--mono); font-size: 0.62rem; color: var(--dim); letter-spacing: 1.5px; margin-top: 4px;">
+          Distributed Intelligence Systems · amesgate.com
+        </div>
+      </div>
+      <div class="footer-node">
+        <div class="red-node"></div>
+        <div class="footer-meta">
+          SYSTEM ONLINE<br>
+          © <span id="year"></span> AMESGATE · ALL RIGHTS RESERVED
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /site-wrap -->
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── PCB BACKGROUND CANVAS ─────────────────────
+  (function() {
+    const canvas = document.getElementById('pcb-bg');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.body.scrollHeight;
+      draw();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const gold = '#C9A84C';
+      const red  = '#CC2222';
+      ctx.strokeStyle = gold;
+      ctx.lineWidth = 0.6;
+
+      const cols = Math.ceil(canvas.width / 80);
+      const rows = Math.ceil(canvas.height / 80);
+
+      for (let c = 0; c < cols; c++) {
+        for (let r = 0; r < rows; r++) {
+          const x = c * 80 + 20;
+          const y = r * 80 + 20;
+
+          // Horizontal trace
+          if (Math.random() > 0.4) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            const len = (Math.floor(Math.random() * 3) + 1) * 40;
+            ctx.lineTo(x + len, y);
+            ctx.stroke();
+            // right-angle turn
+            if (Math.random() > 0.5) {
+              const dir = Math.random() > 0.5 ? 1 : -1;
+              const vlen = (Math.floor(Math.random() * 2) + 1) * 40;
+              ctx.beginPath();
+              ctx.moveTo(x + len, y);
+              ctx.lineTo(x + len, y + dir * vlen);
+              ctx.stroke();
+            }
+          }
+
+          // Node dots
+          if (Math.random() > 0.75) {
+            const nodeColor = Math.random() > 0.8 ? red : gold;
+            ctx.fillStyle = nodeColor;
+            ctx.beginPath();
+            ctx.arc(x + Math.random() * 60, y + Math.random() * 60, 1.5 + Math.random(), 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+  })();
+</script>
+</body>
+</html>
